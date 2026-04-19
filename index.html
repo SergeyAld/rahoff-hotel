@@ -1,385 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahoff Hotel — Bansko</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; background: #f5f4f0; }
-  .lang-bar { display: flex; align-items: center; justify-content: flex-end; padding: 10px 40px; background: rgba(26,43,31,0.97); border-bottom: 0.5px solid rgba(168,208,138,0.15); position: sticky; top: 0; z-index: 100; }
-  .lang-toggle { display: flex; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(168,208,138,0.25); border-radius: 20px; overflow: hidden; }
-  .lang-btn { padding: 5px 16px; font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; border: none; background: transparent; color: rgba(255,255,255,0.5); transition: all 0.2s; }
-  .lang-btn.active { background: #a8d08a; color: #1a2b1f; }
-  .hero { position: relative; background: linear-gradient(160deg, #1a2b1f 0%, #2d4a2a 40%, #1e3528 100%); padding: 60px 40px 50px; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bansko_-_Hotel_Rahoff.jpg/1280px-Bansko_-_Hotel_Rahoff.jpg') center/cover no-repeat; opacity: 0.25; }
-  .hero-top { display: flex; align-items: flex-start; justify-content: space-between; position: relative; z-index: 1; margin-bottom: 40px; gap: 20px; }
-  .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; color: #d4e8c2; font-size: 11px; letter-spacing: 0.08em; margin-bottom: 14px; }
-  .hotel-name { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 400; color: #fff; line-height: 1.05; }
-  .hotel-name em { font-style: italic; color: #a8d08a; }
-  .hotel-sub { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; margin-top: 8px; text-transform: uppercase; }
-  .score-box { background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 16px 22px; text-align: center; min-width: 100px; flex-shrink: 0; }
-  .score-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 600; color: #a8d08a; line-height: 1; }
-  .score-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.06em; }
-  .stars { color: #d4a843; font-size: 13px; margin-top: 4px; }
-  .hero-body { position: relative; z-index: 1; }
-  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: rgba(255,255,255,0.75); max-width: 500px; line-height: 1.5; margin-bottom: 24px; }
-  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pill { background: rgba(168,208,138,0.12); border: 0.5px solid rgba(168,208,138,0.3); color: #a8d08a; padding: 5px 14px; border-radius: 20px; font-size: 12px; }
-  .cta-row { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
-  .btn-primary { background: #a8d08a; color: #1a2b1f; padding: 11px 24px; border-radius: 8px; font-size: 13px; font-weight: 500; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { background: #94c475; }
-  .btn-secondary { background: transparent; color: #a8d08a; padding: 11px 22px; border-radius: 8px; font-size: 13px; border: 0.5px solid rgba(168,208,138,0.4); cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; }
-  .highlight-strip { display: flex; justify-content: space-around; padding: 24px 40px; background: #f0ede6; border-bottom: 0.5px solid #dedad2; }
-  .hs-item { text-align: center; }
-  .hs-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #2d6b1e; }
-  .hs-label { font-size: 11px; color: #888; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.07em; }
-  /* GALLERY — zero white, crisp fills */
-  .gallery-section { background: #111c14; padding: 40px; }
-  .gallery-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
-  .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #fff; font-weight: 400; }
-  .gallery-sub { font-size: 12px; color: rgba(255,255,255,0.35); }
-  .gallery-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-  .gtab { padding: 5px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 0.5px solid rgba(168,208,138,0.3); background: transparent; color: rgba(255,255,255,0.45); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-  .gtab.active { background: #a8d08a; color: #1a2b1f; border-color: #a8d08a; }
-  .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 250px 215px; gap: 5px; background: #111c14; }
-  .g-cell { overflow: hidden; position: relative; cursor: pointer; background: #1e3020; }
-  .g-cell.main { grid-row: 1 / 3; }
-  .g-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-  .g-cell:hover img { transform: scale(1.07); }
-  .g-more-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; font-weight: 500; }
-  /* LIGHTBOX */
-  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 9999; flex-direction: column; align-items: center; justify-content: center; }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 90vw; max-height: 84vh; object-fit: contain; display: block; }
-  .lb-close { position: fixed; top: 16px; right: 22px; color: #fff; font-size: 38px; cursor: pointer; line-height: 1; z-index: 10000; }
-  .lb-prev, .lb-next { position: fixed; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.8); font-size: 54px; cursor: pointer; z-index: 10000; user-select: none; padding: 8px; }
-  .lb-prev { left: 8px; } .lb-next { right: 8px; }
-  .lb-caption { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 12px; }
-  /* SECTIONS */
-  .section { padding: 40px; background: #fff; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: #1a1a1a; margin-bottom: 6px; }
-  .section-sub { font-size: 13px; color: #888; margin-bottom: 24px; }
-  .divider { height: 0.5px; background: #e5e2da; margin: 0 40px; }
-  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 40px; }
-  .info-card { background: #f5f4f0; border-radius: 10px; padding: 16px 20px; }
-  .ic-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-  .ic-val { font-size: 14px; color: #1a1a1a; line-height: 1.5; }
-  .amenities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .amen { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #f5f4f0; border-radius: 8px; font-size: 13px; }
-  .amen-dot { width: 6px; height: 6px; border-radius: 50%; background: #4a8a3a; flex-shrink: 0; }
-  .pricing-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .pricing-table th { text-align: left; padding: 8px 12px; background: #f5f4f0; font-weight: 500; color: #888; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; }
-  .pricing-table td { padding: 10px 12px; border-bottom: 0.5px solid #e5e2da; }
-  .pricing-table tr:last-child td { border-bottom: none; }
-  .pt-price { font-weight: 500; color: #2d6b1e; }
-  .price-note { font-size: 12px; color: #888; margin-top: 10px; }
-  .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .review-card { border: 0.5px solid #e5e2da; border-radius: 12px; padding: 18px 20px; }
-  .rev-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-  .rev-name { font-size: 13px; font-weight: 500; }
-  .rev-source { font-size: 11px; color: #888; margin-top: 2px; }
-  .rev-score { background: #e8f5e0; color: #2d6b1e; font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
-  .rev-text { font-size: 13px; color: #555; line-height: 1.6; font-style: italic; }
-  .map-bar { display: flex; align-items: center; gap: 16px; padding: 20px 40px; background: linear-gradient(90deg, #1a2b1f, #2d4a2a); flex-wrap: wrap; }
-  .map-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
-  .map-text strong { color: #a8d08a; font-weight: 500; }
-  .map-badge { background: rgba(168,208,138,0.2); border: 0.5px solid rgba(168,208,138,0.3); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: #a8d08a; white-space: nowrap; }
-  .contact-bar { display: flex; flex-wrap: wrap; gap: 12px; padding: 28px 40px; background: #f5f4f0; align-items: center; border-top: 0.5px solid #dedad2; }
-  .contact-item { font-size: 13px; color: #555; }
-  @media (max-width: 640px) {
-    .lang-bar, .contact-bar, .map-bar, .gallery-section { padding: 14px 16px; }
-    .hero { padding: 36px 16px 32px; }
-    .hero-top { flex-direction: column; }
-    .hotel-name { font-size: 36px; }
-    .section { padding: 24px 16px; }
-    .divider { margin: 0; }
-    .info-grid, .reviews-grid { grid-template-columns: 1fr; }
-    .amenities-grid { grid-template-columns: 1fr 1fr; }
-    .highlight-strip { padding: 16px; flex-wrap: wrap; gap: 12px; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 160px); }
-    .g-cell.main { grid-row: auto; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rahoff Hotel — Bansko | Official Site</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── 1. DESIGN SYSTEM ─── */
+    :root {
+      --primary: #a8d08a;      /* Sage Green */
+      --bg-main: #111c14;      /* Deep Forest */
+      --bg-darker: #0d1610;    /* Midnight */
+      --bg-card: #1a261a;      /* Card Surface */
+      --text-white: #ffffff;
+      --text-dim: rgba(255, 255, 255, 0.6);
+      --border: rgba(168, 208, 138, 0.15);
+      --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.3s ease;
+    }
+
+    /* ─── 2. RESET & GLOBAL ─── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      opacity: 0; /* Hidden initially for entrance animation */
+      transition: opacity 0.5s ease-in;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .container {
+      padding: 0 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ─── 3. ANIMATION KEYFRAMES ─── */
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+    }
+
+    .reveal.active {
+      animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* ─── 4. HEADER & NAV ─── */
+    header {
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-main);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    .lang-switcher {
+      display: flex;
+      background: #263326;
+      padding: 4px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .lang-btn {
+      padding: 7px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      color: #7a8a7a;
+      background: transparent;
+      transition: var(--transition-fast);
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #0d1610;
+    }
+
+    /* ─── 5. HERO (ENTRANCE) ─── */
+    .hero {
+      position: relative;
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(rgba(17, 28, 20, 0.45), rgba(17, 28, 20, 0.8)), 
+                  url('gallery/jpg_001.jpg') center/cover no-repeat;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-h1 em {
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      color: var(--text-dim);
+      font-size: 18px;
+      max-width: 340px;
+      font-weight: 300;
+      animation: revealUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+
+    /* ─── 6. GALLERY MOSAIC ─── */
+    .section-spacing { padding: 60px 0; }
+    .italic-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 44px; margin-bottom: 28px; }
+
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .m-item {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-card);
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    /* Sequential reveal for mosaic items */
+    .loaded .m-item:nth-child(1) { animation: scaleIn 0.8s ease 0.6s forwards; }
+    .loaded .m-item:nth-child(2) { animation: scaleIn 0.8s ease 0.7s forwards; }
+    .loaded .m-item:nth-child(3) { animation: scaleIn 0.8s ease 0.8s forwards; }
+    .loaded .m-item:nth-child(4) { animation: scaleIn 0.8s ease 0.9s forwards; }
+    .loaded .m-item:nth-child(5) { animation: scaleIn 0.8s ease 1.0s forwards; }
+    .loaded .m-item:nth-child(6) { animation: scaleIn 0.8s ease 1.1s forwards; }
+
+    .m-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .m-item:hover img { transform: scale(1.1); }
+
+    .m-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      z-index: 10;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    /* ─── 7. PRICES ─── */
+    .price-card {
+      background: var(--bg-darker);
+      border-radius: 16px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      transition: var(--transition-slow);
+    }
+
+    .price-meta { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; display: block; }
+    .p-table { width: 100%; border-collapse: collapse; }
+    .p-table th { text-align: left; color: var(--primary); font-size: 11px; text-transform: uppercase; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .p-table td { padding: 22px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 15px; }
+    .p-val { text-align: center; font-weight: 500; }
+
+    /* ─── 8. GUEST STORIES ─── */
+    .rev-card {
+      background: #1a261a;
+      border-radius: 16px;
+      padding: 34px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .rev-card:hover { transform: translateY(-5px); }
+    .rev-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .rev-score { background: rgba(168, 208, 138, 0.12); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+    .rev-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; line-height: 1.45; color: #e0e0e0; }
+
+    /* ─── 9. FULL GALLERY SYSTEM ─── */
+    #full-gallery-view { display: none; position: fixed; inset: 0; background: var(--bg-main); z-index: 9999; overflow-y: auto; }
+    .close-bar { position: sticky; top: 0; padding: 18px 24px; background: var(--bg-main); z-index: 10000; border-bottom: 1px solid var(--border); }
+    .btn-close { width: 100%; padding: 18px; background: var(--primary); color: #0d1610; border: none; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; }
+    .gallery-grid-full { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 24px; }
+    .gallery-grid-full img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 6px; }
+
+    /* ─── 10. FOOTER (DOWN PART) ─── */
+    .footer-down { padding: 80px 0 60px; border-top: 1px solid var(--border); margin-top: 40px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; margin-bottom: 14px; letter-spacing: 2px; }
+    .footer-addr { color: var(--text-dim); font-size: 15px; margin-bottom: 48px; line-height: 1.8; }
+    .footer-label { color: var(--primary); font-size: 12px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; display: block; text-transform: uppercase; }
+    .footer-link { display: block; color: var(--text-white); text-decoration: none; font-size: 17px; margin-bottom: 16px; transition: var(--transition-fast); }
+    .footer-link:hover { color: var(--primary); padding-left: 5px; }
+    .social-section { margin-top: 50px; }
+
+    /* ─── 11. SCROLL REVEAL LOGIC ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-<div class="lang-bar">
-  <div class="lang-toggle">
-    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-bg" onclick="setLang('bg')">БГ</button>
-  </div>
-</div>
-
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-top">
-    <div>
-      <div class="badge" id="t-badge">⭐ #8 of 99 Hotels in Bansko · TripAdvisor</div>
-      <div class="hotel-name">Rahoff <em>Hotel</em></div>
-      <div class="hotel-sub" id="t-sub">Bansko, Pirin Mountain · Bulgaria</div>
+  <div id="full-gallery-view">
+    <div class="close-bar">
+      <button class="btn-close" onclick="toggleGallery(false)" id="close-btn-top">✕ CLOSE GALLERY</button>
     </div>
-    <div class="score-box">
-      <div class="score-num">9.8</div>
-      <div class="stars">★★★★★</div>
-      <div class="score-label">Booking.com</div>
+    <div class="gallery-grid-full" id="mega-dump"></div>
+    <div style="padding: 0 24px 60px;">
+      <button class="btn-close" onclick="toggleGallery(false)" id="close-btn-bottom">✕ CLOSE GALLERY</button>
     </div>
   </div>
-  <div class="hero-body">
-    <div class="hero-tagline" id="t-tagline">"Where the mountains meet genuine Bulgarian warmth — a family hotel that makes every guest feel at home."</div>
-    <div class="hero-pills" id="t-pills">
-      <span class="pill">350 m from Gondola Lift</span><span class="pill">Free Parking</span><span class="pill">Jacuzzi &amp; Sauna</span><span class="pill">On-site Restaurant</span><span class="pill">Panoramic Mountain Views</span><span class="pill">Free Bike Rental</span>
+
+  <div class="container">
+    <header>
+      <div class="logo">RAHOFF</div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-bg" onclick="setLang('bg')">БГ</button>
+      </div>
+    </header>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-h1" id="hero-title">Authentic <em>Spirit</em>.<br>Pirin <em>Grandeur</em>.</h1>
+      <p class="hero-sub" id="hero-sub">A family legacy of hospitality since 1995, steps away from the Pirin mountain trails.</p>
     </div>
-    <div class="cta-row">
-      <a class="btn-primary" href="https://www.booking.com/hotel/bg/rahoff.html" target="_blank" id="t-cta1">Check Availability</a>
-      <a class="btn-secondary" href="https://www.tripadvisor.com/Hotel_Review-g318870-d953300-Reviews-Rahoff_Hotel-Bansko_Blagoevgrad_Province.html" target="_blank" id="t-cta2">79 Reviews ↗</a>
-    </div>
+  </section>
+
+  <div class="container">
+    <section class="section-spacing">
+      <h2 class="italic-title" id="gal-title">Gallery</h2>
+      <div class="mosaic">
+        <div class="m-item">
+          <span class="m-label" id="lab-1">Exterior</span>
+          <img src="gallery/jpg_001.jpg" alt="Rahoff exterior">
+        </div>
+        <div class="m-item">
+          <span class="m-label" id="lab-2">Lobby</span>
+          <img src="gallery/jpg_002.jpg" alt="Rahoff lobby">
+        </div>
+        <div class="m-item">
+          <span class="m-label" id="lab-3">Rooms</span>
+          <img src="gallery/jpg_003.jpg" alt="Rahoff room">
+        </div>
+        <div class="m-item">
+          <span class="m-label" id="lab-4">Pool Table</span>
+          <img src="gallery/jpg_004.jpg" alt="Rahoff pool">
+        </div>
+        <div class="m-item">
+          <span class="m-label" id="lab-5">Tavern</span>
+          <img src="gallery/jpg_005.jpg" alt="Rahoff dining">
+        </div>
+        <div class="m-item" onclick="toggleGallery(true)">
+          <img src="gallery/jpg_006.jpg" style="opacity: 0.3;" alt="More photos">
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:24px;" id="more-text">+255 more</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing reveal">
+      <h2 class="italic-title" id="price-title">Room prices</h2>
+      <span class="price-meta" id="price-meta">Per night • EUR • Low season (Apr 16 – Nov 30, 2026)</span>
+      <div class="price-card">
+        <table class="p-table">
+          <thead>
+            <tr>
+              <th id="th-room">ROOM TYPE</th>
+              <th style="text-align:center" id="th-low">LOW</th>
+              <th style="text-align:center" id="th-peak">PEAK</th>
+            </tr>
+          </thead>
+          <tbody id="price-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-spacing reveal">
+      <h2 class="italic-title" id="rev-title">Guest Stories</h2>
+      <div id="reviews-list"></div>
+    </section>
+
+    <footer class="footer-down reveal">
+      <div class="footer-logo">RAHOFF</div>
+      <p class="footer-addr">76 Stefan Karadja St.<br>Bansko 2770, Bulgaria</p>
+      
+      <span class="footer-label" id="foot-contact-label">Contact</span>
+      <a href="mailto:rahoff_bansko@yahoo.com" class="footer-link">rahoff_bansko@yahoo.com</a>
+      <a href="tel:+359889220284" class="footer-link">+359 889 220 284</a>
+
+      <div class="social-section">
+        <span class="footer-label" id="foot-social-label">Social</span>
+        <a href="https://booking.com" target="_blank" class="footer-link">Booking.com</a>
+        <a href="https://tripadvisor.com" target="_blank" class="footer-link">TripAdvisor</a>
+      </div>
+    </footer>
   </div>
-</div>
 
-<div class="highlight-strip">
-  <div class="hs-item"><div class="hs-num">4.9</div><div class="hs-label" id="t-s1">TripAdvisor Score</div></div>
-  <div class="hs-item"><div class="hs-num">34</div><div class="hs-label" id="t-s2">Beds Capacity</div></div>
-  <div class="hs-item"><div class="hs-num">350m</div><div class="hs-label" id="t-s3">To Ski Gondola</div></div>
-  <div class="hs-item"><div class="hs-num">10min</div><div class="hs-label" id="t-s4">Walk to Old Town</div></div>
-</div>
+  <script>
+    /* ─── 1. INITIALIZATION ─── */
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+      setLang('en');
+      initScrollReveal();
+    });
 
-<div class="gallery-section">
-  <div class="gallery-header">
-    <div class="gallery-title" id="t-gallery-title">Photo gallery</div>
-    <div class="gallery-sub" id="t-gallery-sub">265 photos · Click to enlarge</div>
-  </div>
-  <div class="gallery-tabs">
-    <button class="gtab active" onclick="filterGallery('all',this)" id="gtab-all">All</button>
-    <button class="gtab" onclick="filterGallery('exterior',this)" id="gtab-ext">Exterior</button>
-    <button class="gtab" onclick="filterGallery('room',this)" id="gtab-room">Rooms</button>
-    <button class="gtab" onclick="filterGallery('dining',this)" id="gtab-dining">Dining</button>
-    <button class="gtab" onclick="filterGallery('spa',this)" id="gtab-spa">Spa &amp; Leisure</button>
-    <button class="gtab" onclick="filterGallery('garden',this)" id="gtab-garden">Garden</button>
-  </div>
-  <div class="gallery-grid" id="gallery-grid"></div>
-</div>
+    /* ─── 2. TRANSLATION DATA ─── */
+    const dictionary = {
+      en: {
+        heroTitle: "Authentic <em>Spirit</em>.<br>Pirin <em>Grandeur</em>.",
+        heroSub: "A family legacy of hospitality since 1995, steps away from the Pirin mountain trails.",
+        galTitle: "Gallery",
+        moreText: "+255 more",
+        priceTitle: "Room prices",
+        priceMeta: "Per night • EUR • Low season (Apr 16 – Nov 30, 2026)",
+        thRoom: "ROOM TYPE", thLow: "LOW", thPeak: "PEAK",
+        revTitle: "Guest Stories", footContact: "Contact", footSocial: "Social",
+        closeBtn: "✕ CLOSE GALLERY",
+        labels: ["Exterior", "Lobby", "Rooms", "Pool Table", "Tavern"],
+        rooms: [
+          ["Single room", "€43", "€100"], ["Double room", "€56", "€130"],
+          ["Double luxury", "€56", "€135"], ["Triple room", "€84", "€195"],
+          ["Two-room Apt", "€112", "€260"], ["Maisonette", "€168", "€395"],
+          ["Breakfast", "€8", "€8"]
+        ],
+        reviews: [
+          ["Verified Guest", "10/10", "Outstanding value, rooms spotless. The hosts gave us everything we needed."],
+          ["TripAdvisor", "5/5", "Maria's home cooking was exceptional. We'll definitely be back."]
+        ]
+      },
+      bg: {
+        heroTitle: "Автентичен <em>дух</em>.<br>Пиринско <em>величие</em>.",
+        heroSub: "Семейно гостоприемство от 1995 г., на крачки от пътеките на Пирин планина.",
+        galTitle: "Галерия",
+        moreText: "+255 снимки",
+        priceTitle: "Цени на стаите",
+        priceMeta: "На нощувка • EUR • Слаб сезон (16 апр – 30 ноем 2026)",
+        thRoom: "ТИП СТАЯ", thLow: "СЛАБ", thPeak: "СИЛЕН",
+        revTitle: "Отзиви от гости", footContact: "Контакт", footSocial: "Социални мрежи",
+        closeBtn: "✕ ЗАТВОРИ ГАЛЕРИЯТА",
+        labels: ["Екстериор", "Лоби", "Стаи", "Билярд", "Механа"],
+        rooms: [
+          ["Единична стая", "€43", "€100"], ["Двойна стая", "€56", "€130"],
+          ["Двойна лукс", "€56", "€135"], ["Тройна стая", "€84", "€195"],
+          ["Двустаен ап.", "€112", "€260"], ["Мезонет", "€168", "€395"],
+          ["Закуска", "€8", "€8"]
+        ],
+        reviews: [
+          ["Верифициран гост", "10/10", "Изключително съотношение цена-качество. Домакините ни съдействаха за всичко."],
+          ["TripAdvisor", "5/5", "Домашната кухня на Мария беше страхотна. Със сигурност ще се върнем."]
+        ]
+      }
+    };
 
-<div class="section">
-  <div class="section-title" id="t-about-title">About the hotel</div>
-  <div class="section-sub" id="t-about-sub">A beloved family-run retreat in the southwest of Bansko</div>
-  <div class="info-grid">
-    <div class="info-card"><div class="ic-label" id="t-l1">Location</div><div class="ic-val" id="t-v1">76 Stefan Karadja St., Bansko 2770 — quiet southwest corner with panoramic Pirin mountain views. Next to the gondola ski lift, 10 min walk to the historic centre.</div></div>
-    <div class="info-card"><div class="ic-label" id="t-l2">Hosts</div><div class="ic-val" id="t-v2">Krasimir &amp; Maria — celebrated by guests across all platforms for going far beyond typical hospitality. Homemade wine, personal ski transfers, guided hikes and more.</div></div>
-    <div class="info-card"><div class="ic-label" id="t-l3">Rooms</div><div class="ic-val" id="t-v3">Double, twin, triple rooms and 2 mansard apartments for up to 4 persons. All with private bath, WC, cable TV, Wi-Fi, mini-bar, balcony and mountain views.</div></div>
-    <div class="info-card"><div class="ic-label" id="t-l4">Dining</div><div class="ic-val" id="t-v4">Generous buffet breakfast daily. Restaurant-tavern with traditional Bulgarian cuisine, homemade bread &amp; pastries, home-brewed wine. Dinner available on request.</div></div>
-  </div>
-  <div class="section-title" id="t-amen-title">Facilities &amp; amenities</div>
-  <div class="section-sub" id="t-amen-sub">Everything you need for a perfect mountain stay</div>
-  <div class="amenities-grid" id="t-amenities">
-    <div class="amen"><div class="amen-dot"></div>Jacuzzi (outdoor)</div><div class="amen"><div class="amen-dot"></div>Sauna</div><div class="amen"><div class="amen-dot"></div>Fitness hall</div><div class="amen"><div class="amen-dot"></div>Billiard table</div><div class="amen"><div class="amen-dot"></div>Table tennis</div><div class="amen"><div class="amen-dot"></div>Garden with BBQ</div><div class="amen"><div class="amen-dot"></div>Restaurant-tavern</div><div class="amen"><div class="amen-dot"></div>Lounge with open fire</div><div class="amen"><div class="amen-dot"></div>Sun terrace</div><div class="amen"><div class="amen-dot"></div>Massage on request</div><div class="amen"><div class="amen-dot"></div>Free bike rental</div><div class="amen"><div class="amen-dot"></div>Free parking</div><div class="amen"><div class="amen-dot"></div>Free Wi-Fi</div><div class="amen"><div class="amen-dot"></div>Ski storage</div><div class="amen"><div class="amen-dot"></div>Laundry service</div>
-  </div>
-</div>
+    /* ─── 3. ENGINE LOGIC ─── */
+    function setLang(lang) {
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-bg').classList.toggle('active', lang === 'bg');
+      const t = dictionary[lang];
 
-<div class="divider"></div>
+      // Titles & Text
+      document.getElementById('hero-title').innerHTML = t.heroTitle;
+      document.getElementById('hero-sub').innerText = t.heroSub;
+      document.getElementById('gal-title').innerText = t.galTitle;
+      document.getElementById('more-text').innerText = t.moreText;
+      document.getElementById('price-title').innerText = t.priceTitle;
+      document.getElementById('price-meta').innerText = t.priceMeta;
+      document.getElementById('th-room').innerText = t.thRoom;
+      document.getElementById('th-low').innerText = t.thLow;
+      document.getElementById('th-peak').innerText = t.thPeak;
+      document.getElementById('rev-title').innerText = t.revTitle;
+      document.getElementById('foot-contact-label').innerText = t.footContact;
+      document.getElementById('foot-social-label').innerText = t.footSocial;
+      document.getElementById('close-btn-top').innerText = t.closeBtn;
+      document.getElementById('close-btn-bottom').innerText = t.closeBtn;
 
-<div class="section">
-  <div class="section-title" id="t-price-title">Room prices</div>
-  <div class="section-sub" id="t-price-sub">Per night · EUR · Low season rates from April 16 – November 30, 2026</div>
-  <table class="pricing-table">
-    <thead><tr><th id="t-th1">Room type</th><th id="t-th2">Low season</th><th id="t-th3">Mid season</th><th id="t-th4">Peak / NY</th></tr></thead>
-    <tbody>
-      <tr><td id="t-r1">Single room</td><td class="pt-price">€43</td><td class="pt-price">€51 – €65</td><td class="pt-price">€100</td></tr>
-      <tr><td id="t-r2">Double room</td><td class="pt-price">€56</td><td class="pt-price">€68 – €86</td><td class="pt-price">€130</td></tr>
-      <tr><td id="t-r3">Double luxury room</td><td class="pt-price">€56</td><td class="pt-price">€73 – €91</td><td class="pt-price">€135</td></tr>
-      <tr><td id="t-r4">Triple room</td><td class="pt-price">€84</td><td class="pt-price">€102 – €129</td><td class="pt-price">€195</td></tr>
-      <tr><td id="t-r5">Two-room mansard apartment</td><td class="pt-price">€112</td><td class="pt-price">€135 – €172</td><td class="pt-price">€260</td></tr>
-      <tr><td id="t-r6">Three-room maisonette</td><td class="pt-price">€168</td><td class="pt-price">€209 – €263</td><td class="pt-price">€395</td></tr>
-      <tr><td id="t-r7">Breakfast (per person)</td><td class="pt-price">€8</td><td class="pt-price">€8</td><td class="pt-price">€8</td></tr>
-    </tbody>
-  </table>
-  <div class="price-note" id="t-price-note">Discounts: 10% for 5+ nights · Children under 2 free · Children under 12 at 50% · Groups 10% · Book direct for best rate</div>
-</div>
+      // Labels
+      for(let i=0; i<5; i++) {
+        document.getElementById(`lab-${i+1}`).innerText = t.labels[i];
+      }
 
-<div class="divider"></div>
+      // Prices
+      document.getElementById('price-rows').innerHTML = t.rooms.map(r => `
+        <tr><td>${r[0]}</td><td class="p-val">${r[1]}</td><td class="p-val">${r[2]}</td></tr>
+      `).join('');
 
-<div class="section">
-  <div class="section-title" id="t-rev-title">What guests say</div>
-  <div class="section-sub" id="t-rev-sub">Consistently rated exceptional across TripAdvisor, Booking.com and beyond</div>
-  <div class="reviews-grid">
-    <div class="review-card"><div class="rev-header"><div><div class="rev-name">Йордан Йорданов</div><div class="rev-source">visit.bg · Aug 2013</div></div><div class="rev-score">★ 5/5</div></div><div class="rev-text" id="t-rv1">"Wonderful place to relax. Maria and Krasimir welcomed us with smiles from the very first moment. The hotel is clean and cosy — everything in its place. Unforgettable memories with 17 people. Wholeheartedly recommended."</div></div>
-    <div class="review-card"><div class="rev-header"><div><div class="rev-name">TripAdvisor guest</div><div class="rev-source">TripAdvisor · ski season</div></div><div class="rev-score">★ 5/5</div></div><div class="rev-text" id="t-rv2">"Brilliant stay. Kris drove us to ski rental every morning, Maria's home cooking was exceptional, and they arranged a special birthday treat for our daughter. Gondola and old town both 10 minutes' walk. We'll definitely be back."</div></div>
-    <div class="review-card"><div class="rev-header"><div><div class="rev-name">Verified guest</div><div class="rev-source">Booking.com · winter 2023</div></div><div class="rev-score">10/10</div></div><div class="rev-text" id="t-rv3">"6 adults, 5 children — outstanding value, rooms spotless. The hosts gave us everything we needed about ski rentals and slopes. Substantial breakfast. Maria's homemade bread and cookies were incredible."</div></div>
-    <div class="review-card"><div class="rev-header"><div><div class="rev-name">BulgariaSki reviewer</div><div class="rev-source">bulgariaski.com</div></div><div class="rev-score">★ 5/5</div></div><div class="rev-text" id="t-rv4">"The best hotel I have ever stayed in. Very friendly staff, excellent and affordable food and drink, very clean with lovely rooms and all the extras — sauna, jacuzzi, pool table, bar. I would recommend it to anyone travelling to Bansko."</div></div>
-  </div>
-</div>
-
-<div class="map-bar">
-  <div style="flex:1">
-    <div class="map-text"><strong>76 Stefan Karadja St.</strong>, Bansko 2770, Bulgaria</div>
-    <div class="map-text" style="margin-top:4px" id="t-map-dist">350 m from Gondola · Holy Trinity Church 1.3 km · Sofia Airport ~180 km</div>
-  </div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-    <span class="map-badge" id="t-langs">English · Russian · Bulgarian spoken</span>
-    <span class="map-badge" id="t-pets">Pets welcome</span>
-  </div>
-</div>
-
-<div class="contact-bar">
-  <div class="contact-item">📧 rahoff_bansko@yahoo.com</div>
-  <div class="contact-item">📞 +359 889 220 284</div>
-  <div class="contact-item">📞 +359 898 703 786</div>
-  <div class="contact-item">📠 +359 749 88 470</div>
-  <div style="margin-left:auto"><a class="btn-primary" href="https://www.booking.com/hotel/bg/rahoff.html" target="_blank" id="t-book-btn">Book Now</a></div>
-</div>
-
-<div class="lightbox" id="lightbox" onclick="lbBgClick(event)">
-  <span class="lb-close" onclick="closeLb()">×</span>
-  <span class="lb-prev" onclick="lbNav(-1)">&#8249;</span>
-  <img id="lb-img" src="" alt="">
-  <span class="lb-next" onclick="lbNav(1)">&#8250;</span>
-  <div class="lb-caption" id="lb-caption"></div>
-</div>
-
-<script>
-/* =====================================================
-   PHOTOS — replace src values with your own file paths
-   to add your own photos.
-   Categories: exterior | room | dining | spa | garden
-   ===================================================== */
-const photos = [
-  { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bansko_-_Hotel_Rahoff.jpg/1280px-Bansko_-_Hotel_Rahoff.jpg', cat: 'exterior', caption: 'Rahoff Hotel — Bansko' },
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=85', cat: 'exterior', caption: 'Pirin Mountain — the view from Rahoff' },
-  { src: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=900&q=85', cat: 'exterior', caption: 'Bansko ski season' },
-  { src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=85', cat: 'room', caption: 'Double room with mountain view' },
-  { src: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=900&q=85', cat: 'room', caption: 'Cosy twin room' },
-  { src: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&q=85', cat: 'room', caption: 'Mansard apartment' },
-  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85', cat: 'dining', caption: 'Traditional Bulgarian cuisine' },
-  { src: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=900&q=85', cat: 'dining', caption: 'Lounge bar with open fire' },
-  { src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=85', cat: 'spa', caption: 'Sauna & wellness' },
-  { src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=85', cat: 'spa', caption: 'Outdoor jacuzzi with mountain views' },
-  { src: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=85', cat: 'garden', caption: 'Hotel garden & sun terrace' },
-  { src: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=900&q=85', cat: 'garden', caption: 'BBQ area & garden lounge' },
-];
-
-let currentPhotos = photos.slice();
-let lbIndex = 0;
-
-function buildGallery(list) {
-  const grid = document.getElementById('gallery-grid');
-  grid.innerHTML = '';
-  const show = list.slice(0, 6);
-  show.forEach((p, i) => {
-    const cell = document.createElement('div');
-    cell.className = 'g-cell' + (i === 0 ? ' main' : '');
-    const img = document.createElement('img');
-    img.src = p.src;
-    img.alt = p.caption;
-    img.loading = 'lazy';
-    cell.appendChild(img);
-    if (i === show.length - 1 && list.length > 6) {
-      const ov = document.createElement('div');
-      ov.className = 'g-more-overlay';
-      ov.textContent = '+' + (list.length - 6) + ' more';
-      cell.appendChild(ov);
+      // Reviews
+      document.getElementById('reviews-list').innerHTML = t.reviews.map(rv => `
+        <div class="rev-card">
+          <div class="rev-header"><strong>${rv[0]}</strong><span class="rev-score">${rv[1]}</span></div>
+          <p class="rev-text">"${rv[2]}"</p>
+        </div>
+      `).join('');
     }
-    cell.onclick = () => { currentPhotos = list; openLb(i); };
-    grid.appendChild(cell);
-  });
-}
 
-function filterGallery(cat, btn) {
-  document.querySelectorAll('.gtab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  currentPhotos = cat === 'all' ? photos.slice() : photos.filter(p => p.cat === cat);
-  if (!currentPhotos.length) currentPhotos = photos.slice();
-  buildGallery(currentPhotos);
-}
+    function toggleGallery(show) {
+      const modal = document.getElementById('full-gallery-view');
+      const dump = document.getElementById('mega-dump');
+      modal.style.display = show ? 'block' : 'none';
+      document.body.style.overflow = show ? 'hidden' : 'auto';
+      if (show && dump.children.length === 0) {
+        for (let i = 1; i <= 261; i++) {
+          const img = document.createElement('img');
+          img.src = `gallery/jpg_${i.toString().padStart(3, '0')}.jpg`;
+          img.loading = 'lazy';
+          img.onerror = () => img.style.display = 'none';
+          dump.appendChild(img);
+        }
+      }
+    }
 
-function openLb(idx) {
-  lbIndex = idx;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  refreshLb();
-}
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
 
-function refreshLb() {
-  document.getElementById('lb-img').src = currentPhotos[lbIndex].src;
-  document.getElementById('lb-caption').textContent = currentPhotos[lbIndex].caption + '  (' + (lbIndex+1) + ' / ' + currentPhotos.length + ')';
-}
-
-function lbNav(dir) { lbIndex = (lbIndex + dir + currentPhotos.length) % currentPhotos.length; refreshLb(); }
-function closeLb() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
-function lbBgClick(e) { if (e.target === document.getElementById('lightbox')) closeLb(); }
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeLb(); if (e.key==='ArrowRight') lbNav(1); if (e.key==='ArrowLeft') lbNav(-1); });
-
-buildGallery(photos);
-
-const content = {
-  en: {
-    badge:'⭐ #8 of 99 Hotels in Bansko · TripAdvisor',sub:'Bansko, Pirin Mountain · Bulgaria',
-    tagline:'"Where the mountains meet genuine Bulgarian warmth — a family hotel that makes every guest feel at home."',
-    pills:['350 m from Gondola Lift','Free Parking','Jacuzzi & Sauna','On-site Restaurant','Panoramic Mountain Views','Free Bike Rental'],
-    cta1:'Check Availability',cta2:'79 Reviews ↗',
-    s1:'TripAdvisor Score',s2:'Beds Capacity',s3:'To Ski Gondola',s4:'Walk to Old Town',
-    'gallery-title':'Photo gallery','gallery-sub':'265 photos · Click to enlarge',
-    'about-title':'About the hotel','about-sub':'A beloved family-run retreat in the southwest of Bansko',
-    l1:'Location',v1:'76 Stefan Karadja St., Bansko 2770 — quiet southwest corner with panoramic Pirin mountain views. Next to the gondola ski lift, 10 min walk to the historic centre.',
-    l2:'Hosts',v2:'Krasimir & Maria — celebrated by guests across all platforms for going far beyond typical hospitality. Homemade wine, personal ski transfers, guided hikes and more.',
-    l3:'Rooms',v3:'Double, twin, triple rooms and 2 mansard apartments for up to 4 persons. All with private bath, WC, cable TV, Wi-Fi, mini-bar, balcony and mountain views.',
-    l4:'Dining',v4:'Generous buffet breakfast daily. Restaurant-tavern with traditional Bulgarian cuisine, homemade bread & pastries, home-brewed wine. Dinner available on request.',
-    'amen-title':'Facilities & amenities','amen-sub':'Everything you need for a perfect mountain stay',
-    amenities:['Jacuzzi (outdoor)','Sauna','Fitness hall','Billiard table','Table tennis','Garden with BBQ','Restaurant-tavern','Lounge with open fire','Sun terrace','Massage on request','Free bike rental','Free parking','Free Wi-Fi','Ski storage','Laundry service'],
-    'price-title':'Room prices','price-sub':'Per night · EUR · Low season rates from April 16 – November 30, 2026',
-    th1:'Room type',th2:'Low season',th3:'Mid season',th4:'Peak / NY',
-    r1:'Single room',r2:'Double room',r3:'Double luxury room',r4:'Triple room',r5:'Two-room mansard apartment',r6:'Three-room maisonette',r7:'Breakfast (per person)',
-    'price-note':'Discounts: 10% for 5+ nights · Children under 2 free · Children under 12 at 50% · Groups 10% · Book direct for best rate',
-    'rev-title':'What guests say','rev-sub':'Consistently rated exceptional across TripAdvisor, Booking.com and beyond',
-    rv1:'"Wonderful place to relax. Maria and Krasimir welcomed us with smiles from the very first moment. The hotel is clean and cosy — everything in its place. Unforgettable memories with 17 people. Wholeheartedly recommended."',
-    rv2:'"Brilliant stay. Kris drove us to ski rental every morning, Maria\'s home cooking was exceptional, and they arranged a special birthday treat for our daughter. Gondola and old town both 10 minutes\' walk. We\'ll definitely be back."',
-    rv3:'"6 adults, 5 children — outstanding value, rooms spotless. The hosts gave us everything we needed about ski rentals and slopes. Substantial breakfast. Maria\'s homemade bread and cookies were incredible."',
-    rv4:'"The best hotel I have ever stayed in. Very friendly staff, excellent and affordable food and drink, very clean with lovely rooms and all the extras — sauna, jacuzzi, pool table, bar. I would recommend it to anyone travelling to Bansko."',
-    'map-dist':'350 m from Gondola · Holy Trinity Church 1.3 km · Sofia Airport ~180 km',
-    langs:'English · Russian · Bulgarian spoken',pets:'Pets welcome','book-btn':'Book Now',
-    gtabs:['All','Exterior','Rooms','Dining','Spa & Leisure','Garden']
-  },
-  bg: {
-    badge:'⭐ #8 от 99 хотела в Банско · TripAdvisor',sub:'Банско, Пирин · България',
-    tagline:'„Там, където планината среща истинската българска топлота — семеен хотел, в който всеки гост се чувства у дома."',
-    pills:['350 м от кабинковия лифт','Безплатен паркинг','Джакузи и сауна','Собствен ресторант','Панорамна гледка','Безплатни велосипеди'],
-    cta1:'Провери наличността',cta2:'79 Отзива ↗',
-    s1:'Оценка TripAdvisor',s2:'Брой легла',s3:'До ски лифта',s4:'Пеша до центъра',
-    'gallery-title':'Галерия','gallery-sub':'265 снимки · Кликни за увеличение',
-    'about-title':'За хотела','about-sub':'Любим семеен хотел в югозападната част на Банско',
-    l1:'Местоположение',v1:'ул. „Стефан Караджа" 76, Банско 2770 — тихо, удобно и уютно място с великолепен панорамен изглед към Пирин. На 350 м от кабинковия лифт и на 10 мин. пеша от центъра.',
-    l2:'Домакини',v2:'Красимир и Мария — отзивани от гостите за изключително гостоприемство. Домашно вино, трансфер до ски пистите, планински турове и много повече.',
-    l3:'Стаи',v3:'Двойни, двойни стаи с две легла, тройни стаи и 2 мансардни апартамента за до 4 човека. Всички с баня, WC, кабелна ТВ, Wi-Fi, минибар, тераса и гледка към планината.',
-    l4:'Хранене',v4:'Богата шведска закуска всеки ден. Ресторант-механа с традиционна българска кухня, домашен хляб и сладкиши, домашно вино. Обяд и вечеря по предварителна заявка.',
-    'amen-title':'Удобства','amen-sub':'Всичко необходимо за перфектна почивка в планината',
-    amenities:['Джакузи (открит)','Сауна','Фитнес зала','Билярд','Тенис на маса','Градина с барбекю','Ресторант-механа','Лоби с камина','Слънчева тераса','Масаж при поискване','Безплатни велосипеди','Безплатен паркинг','Безплатен Wi-Fi','Ски гардероб','Пране'],
-    'price-title':'Цени на стаите','price-sub':'На нощувка · EUR · Цени извън сезона от 16 април – 30 ноември 2026',
-    th1:'Тип стая',th2:'Извън сезона',th3:'Среден сезон',th4:'Пик / Нова година',
-    r1:'Единична стая',r2:'Двойна стая',r3:'Двойна луксозна стая',r4:'Тройна стая',r5:'Мансарден апартамент (2 стаи)',r6:'Мезонет (3 стаи)',r7:'Закуска (на човек)',
-    'price-note':'Отстъпки: 10% при 5+ нощувки · Деца до 2 г. безплатно · Деца до 12 г. — 50% · Групи 10% · Резервирайте директно за най-добра цена',
-    'rev-title':'Какво казват гостите','rev-sub':'Неизменно отлични оценки в TripAdvisor, Booking.com и другаде',
-    rv1:'„Чудесно място за почивка! Мария и Красимир ни посрещнаха усмихнати от самото начало. Хотелът е чист и уютен. Незабравими спомени с 17 души. Засужава си!"',
-    rv2:'„Прекрасен престой. Крис ни закарваше до наема за ски всяка сутрин, домашната кухня на Мария беше изключителна. До лифта и центъра — 10 минути пеша. Определено ще се върнем."',
-    rv3:'„6 възрастни и 5 деца — отлично съотношение цена-качество, стаите са чисти. Богата закуска. Домашният хляб и сладкишите на Мария бяха невероятни."',
-    rv4:'„Най-добрият хотел, в който съм отсядал. Много приятелски персонал, отлична и евтина храна, чисто с хубави стаи и всички екстри — сауна, джакузи, билярд, бар. Препоръчвам го за Банско."',
-    'map-dist':'350 м от кабинковия лифт · Църква „Света Троица" 1.3 км · Летище София ~180 км',
-    langs:'Говорим: английски, руски, български',pets:'Домашни любимци — добре дошли','book-btn':'Резервирай',
-    gtabs:['Всички','Екстериор','Стаи','Хранене','СПА и отдих','Градина']
-  }
-};
-
-const textIds=['badge','sub','tagline','cta1','cta2','s1','s2','s3','s4','gallery-title','gallery-sub','about-title','about-sub','l1','v1','l2','v2','l3','v3','l4','v4','amen-title','amen-sub','price-title','price-sub','th1','th2','th3','th4','r1','r2','r3','r4','r5','r6','r7','price-note','rev-title','rev-sub','rv1','rv2','rv3','rv4','map-dist','langs','pets','book-btn'];
-
-function setLang(lang) {
-  const d=content[lang];
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-  document.getElementById('btn-bg').classList.toggle('active',lang==='bg');
-  textIds.forEach(id=>{const el=document.getElementById('t-'+id);if(el)el.textContent=d[id];});
-  const pe=document.getElementById('t-pills');if(pe)pe.innerHTML=d.pills.map(p=>`<span class="pill">${p}</span>`).join('');
-  const ae=document.getElementById('t-amenities');if(ae)ae.innerHTML=d.amenities.map(a=>`<div class="amen"><div class="amen-dot"></div>${a}</div>`).join('');
-  ['gtab-all','gtab-ext','gtab-room','gtab-dining','gtab-spa','gtab-garden'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=d.gtabs[i];});
-}
-</script>
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+  </script>
 </body>
 </html>
