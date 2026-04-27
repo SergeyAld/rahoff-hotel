@@ -107,12 +107,18 @@
       color: #0e1712;
     }
 
-    /* ── LOGO IMAGES (hotel branding) ── */
     .navbar-logo-img {
       height: 70px;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(168,208,138,0.25));
+      filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.25));
+    }
+
+    .navbar-logo2-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.25));
     }
 
     .hero-logo-strip {
@@ -120,14 +126,15 @@
       justify-content: center;
       margin-top: 32px;
       padding-top: 24px;
-      border-top: 1px solid rgba(168,208,138,0.12);
+      border-top: 1px solid rgba(168, 208, 138, 0.12);
     }
+
     .hero-logo-strip img {
       height: 100px;
       width: auto;
       object-fit: contain;
       opacity: 0.85;
-      filter: drop-shadow(0 0 8px rgba(168,208,138,0.2));
+      filter: drop-shadow(0 0 8px rgba(168, 208, 138, 0.2));
     }
 
     .footer-logo-strip {
@@ -138,33 +145,36 @@
       padding: 32px 0 24px;
       flex-wrap: wrap;
     }
+
     .footer-logo-strip img {
       height: 80px;
       width: auto;
       object-fit: contain;
       opacity: 0.8;
-      filter: drop-shadow(0 0 6px rgba(168,208,138,0.18));
+      filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.18));
       transition: opacity 0.2s;
     }
+
     .footer-logo-strip img:hover {
       opacity: 1;
     }
 
-/* ── BOOKING & TRIPADVISOR LOGOS - ОЩЕ ПО-ГОЛЕМИ ── */
-.booking-logo-img,
-.tripadvisor-logo-img {
-  width: 100px !important;
-  height: auto !important;
-  object-fit: contain;
-  vertical-align: middle;
-  transition: opacity 0.2s;
-}
+    .booking-logo-img,
+    .tripadvisor-logo-img,
+    .expedia-logo-img {
+      width: 100px !important;
+      height: auto !important;
+      object-fit: contain;
+      vertical-align: middle;
+      transition: opacity 0.2s;
+    }
+
     .booking-logo-img:hover,
-    .tripadvisor-logo-img:hover {
+    .tripadvisor-logo-img:hover,
+    .expedia-logo-img:hover {
       opacity: 0.8;
     }
 
-    /* Hero */
     .hero {
       background: linear-gradient(125deg, #132118 0%, #1e2f1c 100%);
       border-radius: 40px;
@@ -524,6 +534,79 @@
       color: #d0e6bc;
     }
 
+    .bansko-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      margin: 28px 0;
+    }
+
+    .bansko-card {
+      background: #1f2c1b;
+      border-radius: 28px;
+      padding: 28px 24px;
+      border: 1px solid #3a5432;
+      transition: 0.25s;
+    }
+
+    .bansko-card:hover {
+      transform: translateY(-4px);
+      background: #263f21;
+      border-color: #5f8b4c;
+    }
+
+    .bansko-card .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .bansko-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: #c7f0a3;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .bansko-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bansko-card ul li {
+      padding: 6px 0;
+      font-size: 0.9rem;
+      color: #c0ddb0;
+      border-bottom: 1px solid rgba(168, 208, 138, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bansko-card ul li::before {
+      content: '•';
+      color: #8bb56a;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .bansko-intro {
+      font-size: 1.1rem;
+      color: #c0ddb0;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 800px;
+      background: #1b2a16;
+      padding: 20px 28px;
+      border-radius: 20px;
+      border: 1px solid #3a5a2e;
+    }
+
+    .bansko-intro strong {
+      color: #c7f0a3;
+    }
+
     .book-card {
       background: linear-gradient(135deg, #1e3a1f 0%, #2b4a22 100%);
       border-radius: 36px;
@@ -738,10 +821,10 @@
   <div class="container">
     <div class="navbar">
       <div class="logo" style="display:flex;align-items:center;gap:14px;">
-        <img src="logos/logo1.jpg" alt="Rahoff Hotel Logo" class="navbar-logo-img"
-             onerror="this.style.display='none'">
+        <img src="gallery/logo1.jpg" alt="Rahoff Hotel Logo" class="navbar-logo-img"
+          onerror="this.style.display='none'">
         <div>
-          <h1 id="logoTitle">RAHOFF</h1>
+          <img src="gallery/logo2.jpg" alt="Rahoff Hotel" class="navbar-logo2-img" onerror="this.style.display='none'">
           <p id="logoSub">Банско · Пирин Величие</p>
         </div>
       </div>
@@ -781,15 +864,18 @@
           </div>
         </div>
       </div>
-
-      <div class="hero-logo-strip">
-        <img src="logos/logo2.jpg" alt="Rahoff Hotel"
-             onerror="this.style.display='none'">
-      </div>
     </div>
 
     <h2 class="section-title" id="galleryTitle">Нашата галерия</h2>
     <div class="gallery-grid" id="galleryGrid"></div>
+
+    <section id="bansko-info">
+      <h2 class="section-title" id="banskoInfoTitle">Открийте Банско</h2>
+      <div class="bansko-intro" id="banskoInfoDesc">Над <strong>180 кристално чисти ледникови
+          езера</strong>, величествени върхове и безкрайни приключения ви очакват в Пирин планина —
+        целогодишна дестинация за незабравими преживявания.</div>
+      <div class="bansko-info-grid" id="banskoInfoGrid"></div>
+    </section>
 
     <section id="reviews">
       <h2 class="section-title" id="reviewsTitle">Какво обичат гостите</h2>
@@ -816,7 +902,8 @@
         <p id="bookDesc">Най-добра цена · Безплатна анулация · Директен контакт</p>
         <a href="#" class="btn-book" id="bookNowBtn">Провери наличност →</a>
         <div class="terms-link">
-          <a href="terms.pdf" target="_blank" id="pdfLink1"><i class="fas fa-file-pdf"></i> Общи условия и политика за
+          <a href="terms.pdf" target="_blank" id="pdfLink1"><i class="fas fa-file-pdf"></i> Общи условия и
+            политика за
             поверителност (PDF)</a>
           <span>|</span>
           <a href="terms.pdf" download id="pdfDownload1"><i class="fas fa-download"></i> Изтегли PDF</a>
@@ -828,7 +915,8 @@
       <div>
         <h3 id="termsTitle"><i class="fas fa-gavel"></i> Общи условия & Политика</h3>
         <p id="termsDesc">Пълна информация за настаняване, анулация, GDPR и вашите права.</p>
-        <a href="terms.pdf" target="_blank" class="pdf-link-btn" id="pdfLink2"><i class="fas fa-file-pdf"></i> Отвори
+        <a href="terms.pdf" target="_blank" class="pdf-link-btn" id="pdfLink2"><i class="fas fa-file-pdf"></i>
+          Отвори
           PDF</a>
       </div>
     </div>
@@ -838,32 +926,42 @@
     <div class="container">
 
       <div class="footer-logo-strip">
-        <img src="logos/logo1.jpg" alt="Rahoff Hotel Logo 1" onerror="this.style.display='none'">
-        <img src="logos/logo2.jpg" alt="Rahoff Hotel Logo 2" onerror="this.style.display='none'">
-        <img src="logos/logo3.jpg" alt="Rahoff Hotel Logo 3" onerror="this.style.display='none'">
+        <img src="gallery/logo1.jpg" alt="Rahoff Hotel Logo 1" onerror="this.style.display='none'">
+        <img src="gallery/logo2.jpg" alt="Rahoff Hotel Logo 2" onerror="this.style.display='none'">
+        <img src="gallery/logo3.jpg" alt="Rahoff Hotel Logo 3" onerror="this.style.display='none'">
       </div>
 
       <div class="contact-info">
         <div>
           <h4>📍 Адрес</h4>
-          <p id="addressFooter">76 Stefan Karadja St.<br>Банско 2770, България<br>350 м от лифта · Летище София ~180 км
+          <p id="addressFooter">76 Stefan Karadja St.<br>Банско 2770, България<br>350 м от лифта · Летище София
+            ~180 км
           </p>
         </div>
         <div>
           <h4>📞 Контакт</h4>
-          <p id="contactFooter">rahoff_bansko@yahoo.com<br>+359 889 220 284<br>+359 898 703 786<br>+359 749 88 470</p>
+          <p id="contactFooter">rahoff_bansko@yahoo.com<br>+359 889 220 284<br>+359 898 703 786</p>
         </div>
         <div>
           <h4>🔖 Резервация</h4>
           <p>
-            <!-- ✅ РАБОТЕЩИ ЛИНКОВЕ С ПО-ГОЛЕМИ ЛОГА -->
-            <a href="https://www.booking.com/hotel/bg/rahoff-bansko.bg.html" target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
-              <img src="logos/booking-logo.png" alt="Booking.com" class="booking-logo-img" style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
-                   onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Booking.com'">
+            <a href="https://www.booking.com/hotel/bg/rahoff-bansko.bg.html" target="_blank" rel="noopener noreferrer"
+              style="color:#c2e0a2; text-decoration: none;">
+              <img src="logos/booking-logo.png" alt="Booking.com" class="booking-logo-img"
+                style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
+                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Booking.com'">
             </a>
-            <a href="https://www.tripadvisor.com/Hotel_Review-g318868-d17928514-Reviews-Rahoff_Hotel-Bansko_Blagoevgrad_Province.html" target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
-              <img src="logos/tripadvisor-logo.png" alt="TripAdvisor" class="tripadvisor-logo-img" style="width: 150px; height: auto; display: block;"
-                   onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=TripAdvisor'">
+            <a href="https://www.tripadvisor.com/Hotel_Review-g318868-d17928514-Reviews-Rahoff_Hotel-Bansko_Blagoevgrad_Province.html"
+              target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
+              <img src="logos/tripadvisor-logo.png" alt="TripAdvisor" class="tripadvisor-logo-img"
+                style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
+                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=TripAdvisor'">
+            </a>
+            <a href="https://www.expedia.com" target="_blank" rel="noopener noreferrer"
+              style="color:#c2e0a2; text-decoration: none;">
+              <img src="logos/expedia-logo.png" alt="Expedia" class="expedia-logo-img"
+                style="width: 150px; height: auto; display: block;"
+                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Expedia'">
             </a>
           </p>
         </div>
@@ -916,7 +1014,10 @@
       const img = document.createElement('img');
       img.src = item.src;
       img.alt = item.label;
-      img.onerror = function () { this.src = 'https://placehold.co/600x600/2a442a/8bb56a?text=Image+missing'; };
+      img.onerror = function () {
+        this.src =
+          'https://placehold.co/600x600/2a442a/8bb56a?text=Image+missing';
+      };
       div.appendChild(img);
       if (idx === 3) {
         const overlay = document.createElement('div');
@@ -944,14 +1045,30 @@
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+
     function updateLightbox() {
       lbImg.src = allImages[currentIndex];
-      lbImg.onerror = function () { this.src = 'https://placehold.co/1200x800/2a442a/8bb56a?text=Image+not+found'; };
+      lbImg.onerror = function () {
+        this.src =
+          'https://placehold.co/1200x800/2a442a/8bb56a?text=Image+not+found';
+      };
       lbCounter.innerText = `${currentIndex + 1} / ${totalImages}`;
     }
-    function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
-    function nextImage() { currentIndex = (currentIndex + 1) % totalImages; updateLightbox(); }
-    function prevImage() { currentIndex = (currentIndex - 1 + totalImages) % totalImages; updateLightbox(); }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateLightbox();
+    }
 
     document.getElementById('lbClose').addEventListener('click', closeLightbox);
     document.getElementById('lbPrev').addEventListener('click', prevImage);
@@ -965,53 +1082,207 @@
 
     const translations = {
       bg: {
-        logoTitle: "RAHOFF", logoSub: "Банско · Пирин Величие", navHome: "Начало", navReviews: "Отзиви", navRooms: "Стаи", navFacilities: "Услуги", navBook: "Резервация",
-        heroBadge: "✦ Семеен хотел · 4.9 Отличен ✦", heroTitle: "Вашето спокойно бягство<br>в Пирин планина", heroDesc: "Само 10 мин. пеша до лифта · Панорамна гледка · Домашна кухня",
-        ratingValue: "4.9", rankingText: "#8 от 99 хотела в Банско", reviewsCount: "79+ потвърдени отзива",
-        galleryTitle: "Нашата галерия", reviewsTitle: "Какво обичат гостите", roomsTitle: "Настаняване & цени", amenitiesTitle: "Удобства",
-        bookTitle: "Осигурете своята планинска почивка", bookDesc: "Най-добра цена · Безплатна анулация · Директен контакт", termsTitle: "Общи условия & Политика", termsDesc: "Пълна информация за настаняване, анулация, GDPR и вашите права.",
-        addressFooter: "76 Stefan Karadja St.\nБанско 2770, България\n350 м от лифта · Летище София ~180 км",
-        contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786\n+359 749 88 470",
-        footerCopy: "© 2025 Хотел Рахофф – Банско", chatHeader: "Асистент Рахофф", welcomeMsg: "👋 Здравейте! Питайте ме за цени, лифт или общи условия.",
-        priceNote: "*Коледна вечеря (24€) · Новогодишна гала (60€).",
-        discounts: ["🎁 10% отстъпка при 5+ нощувки", "👶 Деца до 2 г. безплатно", "🧒 Деца до 12 г. -50%", "🍽️ Закуска: 8 €"],
-        amenities: ["🔥 Камина", "🌿 Тераса", "🧖 Сауна", "💦 Джакузи", "🏋️ Фитнес", "🎱 Билярд", "🚲 Безплатни велосипеди", "🏔️ Ски инструктор", "🍷 Механа", "🅿️ Паркинг"],
-        reviews: [
-          { text: "Невероятно гостоприемство! Мария и Красимир се отнасят като със семейство. Чисти стаи, гледка.", author: "— Марина, САЩ" },
-          { text: "Всичко перфектно — джакузи след ски, вкусни вечери, най-добро съотношение.", author: "— Елена, Румъния" },
-          { text: "Истинско бижу. Уютно, чисто, градина с барбекю.", author: "— Джиани, Румъния" },
-          { text: "Незабравим престой — традиционна вечеря, сауна, безплатни велосипеди.", author: "— Йордан, България" }
+        logoSub: "Банско · Пирин Величие",
+        navHome: "Начало",
+        navReviews: "Отзиви",
+        navRooms: "Стаи",
+        navFacilities: "Услуги",
+        navBook: "Резервация",
+        heroBadge: "✦ Семеен хотел · 4.9 Отличен ✦",
+        heroTitle: "Вашето спокойно бягство<br>в Пирин планина",
+        heroDesc: "Само 10 мин. пеша до лифта · Панорамна гледка · Домашна кухня",
+        ratingValue: "4.9",
+        rankingText: "#8 от 99 хотела в Банско",
+        reviewsCount: "79+ потвърдени отзива",
+        featureList: ["79+ потвърдени отзива", "350 м до лифта", "Домашна кухня"],
+        galleryTitle: "Нашата галерия",
+        banskoInfoTitle: "Открийте Банско",
+        banskoInfoDesc: "Над <strong>180 кристално чисти ледникови езера</strong>, величествени върхове и безкрайни приключения ви очакват в Пирин планина — целогодишна дестинация за незабравими преживявания.",
+        banskoInfoCards: [
+          {
+            icon: "🏔️", title: "Летни приключения",
+            items: ["Походи до езерата Окото и Рибното", "Изкачване на връх Вихрен (2914 м)",
+              "Пикник сред природата", "Риболов на пъстърва", "Конна езда и ATV",
+              "Веломаршрути", "Голф игрище „Пирин Голф\""
+            ]
+          },
+          {
+            icon: "🎿", title: "Зимни спортове",
+            items: ["Ски и сноуборд", "Кънки и шейни", "10 мин пеша до лифта",
+              "Ски инструктор", "Нощно каране"
+            ]
+          },
+          {
+            icon: "🏛️", title: "Култура & Екскурзии",
+            items: ["Рилски манастир + пазар в Благоевград", "Мелник и Роженски манастир",
+              "Църква в с. Добърско", "Парк за мечки в Белица",
+              "Къща на баба Ванга в Рупите", "С. Лещен и Ковачевица"
+            ]
+          },
+          {
+            icon: "🚗", title: "Близки дестинации",
+            items: ["Кавала, Гърция (2 ч с кола)", "Велинград с ретро влак",
+              "Минерални басейни", "Най-старото дърво в България (1300 г.)",
+              "Хижа Бъндерица и връх Безбог", "Водопад „Св. Никола\""
+            ]
+          }
         ],
-        tableHeaders: ["Тип стая", "01-20 дек 2025", "21-27 дек 2025", "28 дек - 02 яну", "16 апр - 30 ное"],
-        tableRows: [["Единична", "51 €", "65 €", "100 €", "43 €"], ["Двойна", "68 €", "86 €", "130 €", "56 €"], ["Двойна лукс", "73 €", "91 €", "135 €", "56 €"], ["Тройна", "102 €", "129 €", "195 €", "84 €"], ["Апартамент", "136 €", "172 €", "260 €", "112 €"], ["Мезонет", "209 €", "263 €", "395 €", "168 €"]]
+        reviewsTitle: "Какво обичат гостите",
+        roomsTitle: "Настаняване & цени",
+        amenitiesTitle: "Удобства",
+        bookTitle: "Осигурете своята планинска почивка",
+        bookDesc: "Най-добра цена · Безплатна анулация · Директен контакт",
+        termsTitle: "Общи условия & Политика",
+        termsDesc: "Пълна информация за настаняване, анулация, GDPR и вашите права.",
+        addressFooter: "76 Stefan Karadja St.\nБанско 2770, България\n350 м от лифта · Летище София ~180 км",
+        contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786",
+        footerCopy: "© 2026 Хотел Рахофф – Банско",
+        chatHeader: "Асистент Рахофф",
+        welcomeMsg: "👋 Здравейте! Питайте ме за цени, лифт или общи условия.",
+        botPrice: "Двойна стая от 56 до 130 EUR. Вижте таблицата с цени!",
+        botTerms: "Общите условия са в PDF линка под бутона за резервация.",
+        botGondola: "Хотелът е на 350 метра от лифта (около 10 мин. пеша).",
+        botDefault: "Благодаря! За точна оферта се свържете на +359 889 220 284 или вижте PDF с условията.",
+        priceNote: "*Коледна вечеря (24€) · Новогодишна гала (60€).",
+        discounts: ["🎁 10% отстъпка при 5+ нощувки", "👶 Деца до 2 г. безплатно",
+          "🧒 Деца до 12 г. -50%", "🍽️ Закуска: 8 €"
+        ],
+        amenities: ["🔥 Камина", "🌿 Тераса", "🧖 Сауна", "💦 Джакузи", "🏋️ Фитнес", "🎱 Билярд",
+          "🚲 Безплатни велосипеди", "🏔️ Ски инструктор", "🍷 Механа", "🅿️ Паркинг"
+        ],
+        reviews: [
+          {
+            text: "Невероятно гостоприемство! Мария и Красимир се отнасят като със семейство. Чисти стаи, гледка.",
+            author: "— Марина, САЩ"
+          },
+          {
+            text: "Всичко перфектно — джакузи след ски, вкусни вечери, най-добро съотношение.",
+            author: "— Елена, Румъния"
+          },
+          { text: "Истинско бижу. Уютно, чисто, градина с барбекю.", author: "— Джиани, Румъния" },
+          {
+            text: "Незабравим престой — традиционна вечеря, сауна, безплатни велосипеди.",
+            author: "— Йордан, България"
+          }
+        ],
+        tableHeaders: ["Тип стая", "01-20 дек 2025", "21-27 дек 2025", "28 дек 2025 - 02 яну 2026",
+          "16 апр - 30 ное"
+        ],
+        tableRows: [
+          ["Единична", "51 €", "65 €", "100 €", "43 €"],
+          ["Двойна", "68 €", "86 €", "130 €", "56 €"],
+          ["Двойна лукс", "73 €", "91 €", "135 €", "56 €"],
+          ["Тройна", "102 €", "129 €", "195 €", "84 €"],
+          ["Апартамент", "136 €", "172 €", "260 €", "112 €"],
+          ["Мезонет", "209 €", "263 €", "395 €", "168 €"]
+        ]
       },
       en: {
-        logoTitle: "RAHOFF", logoSub: "Bansko · Pirin Majesty", navHome: "Home", navReviews: "Reviews", navRooms: "Rooms", navFacilities: "Facilities", navBook: "Book now",
-        heroBadge: "✦ Family-run · 4.9 Excellent ✦", heroTitle: "Your peaceful escape<br>in the Pirin Mountains", heroDesc: "Just 10 min walk to Gondola lift · Panoramic views · Homemade cuisine",
-        ratingValue: "4.9", rankingText: "#8 of 99 hotels in Bansko", reviewsCount: "79+ verified reviews",
-        galleryTitle: "Our Gallery", reviewsTitle: "What guests love", roomsTitle: "Accommodation & prices", amenitiesTitle: "Amenities",
-        bookTitle: "Secure your mountain escape", bookDesc: "Best rate · Free cancellation · Direct contact", termsTitle: "Terms & Privacy Policy", termsDesc: "Full info about stay, cancellation, GDPR and your rights.",
-        addressFooter: "76 Stefan Karadja St.\nBansko 2770, Bulgaria\n350 m from Gondola · Sofia Airport ~180 km",
-        contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786\n+359 749 88 470",
-        footerCopy: "© 2025 Rahoff Hotel – Bansko", chatHeader: "Rahoff Assistant", welcomeMsg: "👋 Hello! Ask me about prices, gondola or terms & conditions.",
-        priceNote: "*Christmas dinner (24€) · New Year's gala (60€).",
-        discounts: ["🎁 10% off for 5+ nights", "👶 Children under 2 free", "🧒 Under 12: -50%", "🍽️ Breakfast: 8 €"],
-        amenities: ["🔥 Fireplace", "🌿 Terrace", "🧖 Sauna", "💦 Jacuzzi", "🏋️ Fitness", "🎱 Billiard", "🚲 Free bikes", "🏔️ Ski instructor", "🍷 Tavern", "🅿️ Parking"],
-        reviews: [
-          { text: "Fantastic hospitality! Maria and Krasimir treat you like family. Spotless rooms.", author: "— Marina, USA" },
-          { text: "Everything perfect — jacuzzi after skiing, delicious dinners, best value.", author: "— Elena, Romania" },
-          { text: "A true gem. Cozy, extremely clean, garden with BBQ.", author: "— Giani, Romania" },
-          { text: "Unforgettable stay — traditional dinner, sauna, free bikes.", author: "— Yordan, Bulgaria" }
+        logoSub: "Bansko · Pirin Majesty",
+        navHome: "Home",
+        navReviews: "Reviews",
+        navRooms: "Rooms",
+        navFacilities: "Facilities",
+        navBook: "Book now",
+        heroBadge: "✦ Family-run · 4.9 Excellent ✦",
+        heroTitle: "Your peaceful escape<br>in the Pirin Mountains",
+        heroDesc: "Just 10 min walk to Gondola lift · Panoramic views · Homemade cuisine",
+        ratingValue: "4.9",
+        rankingText: "#8 of 99 hotels in Bansko",
+        reviewsCount: "79+ verified reviews",
+        featureList: ["79+ verified reviews", "350 m to gondola", "Homemade cuisine"],
+        galleryTitle: "Our Gallery",
+        banskoInfoTitle: "Discover Bansko",
+        banskoInfoDesc: "Over <strong>180 crystal-clear glacial lakes</strong>, majestic peaks and endless adventures await you in the Pirin Mountains — a year-round destination for unforgettable experiences.",
+        banskoInfoCards: [
+          {
+            icon: "🏔️", title: "Summer Adventures",
+            items: ["Hikes to Okoto & Ribnoto lakes", "Climb Vihren Peak (2914 m)",
+              "Mountain picnics", "Trout fishing", "Horseback riding & ATV",
+              "Cycling routes", "Pirin Golf course"
+            ]
+          },
+          {
+            icon: "🎿", title: "Winter Sports",
+            items: ["Skiing & snowboarding", "Ice skating & sledding",
+              "10 min walk to gondola", "Ski instructor", "Night skiing"
+            ]
+          },
+          {
+            icon: "🏛️", title: "Culture & Excursions",
+            items: ["Rila Monastery + Blagoevgrad market",
+              "Melnik & Rozhen Monastery", "Dobarsko village church",
+              "Bear Park in Belitsa", "Baba Vanga's house in Rupite",
+              "Leshten & Kovachevitsa villages"
+            ]
+          },
+          {
+            icon: "🚗", title: "Nearby Destinations",
+            items: ["Kavala, Greece (2 hr drive)", "Velingrad retro train",
+              "Mineral pools & spas", "Oldest tree in Bulgaria (1300 yrs)",
+              "Banderitsa hut & Bezbog peak", "St. Nicholas waterfall"
+            ]
+          }
         ],
-        tableHeaders: ["Room type", "Dec 01-20, 2025", "Dec 21-27, 2025", "Dec 28 - Jan 02", "Apr 16 - Nov 30"],
-        tableRows: [["Single", "51 €", "65 €", "100 €", "43 €"], ["Double", "68 €", "86 €", "130 €", "56 €"], ["Double luxury", "73 €", "91 €", "135 €", "56 €"], ["Triple", "102 €", "129 €", "195 €", "84 €"], ["Apartment", "136 €", "172 €", "260 €", "112 €"], ["Maisonette", "209 €", "263 €", "395 €", "168 €"]]
+        reviewsTitle: "What guests love",
+        roomsTitle: "Accommodation & prices",
+        amenitiesTitle: "Amenities",
+        bookTitle: "Secure your mountain escape",
+        bookDesc: "Best rate · Free cancellation · Direct contact",
+        termsTitle: "Terms & Privacy Policy",
+        termsDesc: "Full info about stay, cancellation, GDPR and your rights.",
+        addressFooter: "76 Stefan Karadja St.\nBansko 2770, Bulgaria\n350 m from Gondola · Sofia Airport ~180 km",
+        contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786",
+        footerCopy: "© 2026 Rahoff Hotel – Bansko",
+        chatHeader: "Rahoff Assistant",
+        welcomeMsg: "👋 Hello! Ask me about prices, gondola or terms & conditions.",
+        botPrice: "Double room from 56 to 130 EUR. Check the price table!",
+        botTerms: "Terms & conditions are in the PDF link below the booking button.",
+        botGondola: "The hotel is 350 meters from the gondola (about 10 min walk).",
+        botDefault: "Thank you! For exact offer contact +359 889 220 284 or check the PDF with terms.",
+        priceNote: "*Christmas dinner (24€) · New Year's gala (60€).",
+        discounts: ["🎁 10% off for 5+ nights", "👶 Children under 2 free", "🧒 Under 12: -50%",
+          "🍽️ Breakfast: 8 €"
+        ],
+        amenities: ["🔥 Fireplace", "🌿 Terrace", "🧖 Sauna", "💦 Jacuzzi", "🏋️ Fitness", "🎱 Billiard",
+          "🚲 Free bikes", "🏔️ Ski instructor", "🍷 Tavern", "🅿️ Parking"
+        ],
+        reviews: [
+          {
+            text: "Fantastic hospitality! Maria and Krasimir treat you like family. Spotless rooms.",
+            author: "— Marina, USA"
+          },
+          {
+            text: "Everything perfect — jacuzzi after skiing, delicious dinners, best value.",
+            author: "— Elena, Romania"
+          },
+          {
+            text: "A true gem. Cozy, extremely clean, garden with BBQ.",
+            author: "— Giani, Romania"
+          },
+          {
+            text: "Unforgettable stay — traditional dinner, sauna, free bikes.",
+            author: "— Yordan, Bulgaria"
+          }
+        ],
+        tableHeaders: ["Room type", "Dec 01-20, 2025", "Dec 21-27, 2025", "Dec 28, 2025 - Jan 02, 2026",
+          "Apr 16 - Nov 30"
+        ],
+        tableRows: [
+          ["Single", "51 €", "65 €", "100 €", "43 €"],
+          ["Double", "68 €", "86 €", "130 €", "56 €"],
+          ["Double luxury", "73 €", "91 €", "135 €", "56 €"],
+          ["Triple", "102 €", "129 €", "195 €", "84 €"],
+          ["Apartment", "136 €", "172 €", "260 €", "112 €"],
+          ["Maisonette", "209 €", "263 €", "395 €", "168 €"]
+        ]
       }
     };
 
     let currentLang = 'bg';
+
     function updateUI(lang) {
       const t = translations[lang];
-      document.getElementById('logoTitle').innerText = t.logoTitle;
       document.getElementById('logoSub').innerText = t.logoSub;
       document.getElementById('navHome').innerText = t.navHome;
       document.getElementById('navReviews').innerText = t.navReviews;
@@ -1023,8 +1294,18 @@
       document.getElementById('heroDesc').innerText = t.heroDesc;
       document.getElementById('ratingValue').innerText = t.ratingValue;
       document.getElementById('rankingText').innerText = t.rankingText;
-      document.getElementById('featureList').innerHTML = `<p><i class="fas fa-check-circle"></i> ${t.reviewsCount}</p><p><i class="fas fa-location-dot"></i> 350 м до лифта</p><p><i class="fas fa-utensils"></i> Домашна кухня</p>`;
+      document.getElementById('featureList').innerHTML =
+        `<p><i class="fas fa-check-circle"></i> ${t.featureList[0]}</p><p><i class="fas fa-location-dot"></i> ${t.featureList[1]}</p><p><i class="fas fa-utensils"></i> ${t.featureList[2]}</p>`;
       document.getElementById('galleryTitle').innerText = t.galleryTitle;
+      document.getElementById('banskoInfoTitle').innerText = t.banskoInfoTitle;
+      document.getElementById('banskoInfoDesc').innerHTML = t.banskoInfoDesc;
+      document.getElementById('banskoInfoGrid').innerHTML = t.banskoInfoCards.map(card => `
+                <div class="bansko-card">
+                    <span class="card-icon">${card.icon}</span>
+                    <h4>${card.title}</h4>
+                    <ul>${card.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                </div>
+            `).join('');
       document.getElementById('reviewsTitle').innerText = t.reviewsTitle;
       document.getElementById('roomsTitle').innerText = t.roomsTitle;
       document.getElementById('amenitiesTitle').innerText = t.amenitiesTitle;
@@ -1038,14 +1319,24 @@
       document.getElementById('chatHeader').innerText = t.chatHeader;
       document.getElementById('welcomeMsg').innerHTML = t.welcomeMsg;
       document.getElementById('priceNote').innerText = t.priceNote;
-      document.getElementById('discountsContainer').innerHTML = `<div style="margin-top:24px;">${t.discounts.map(d => `<span class="discount-badge">${d}</span>`).join('')}</div>`;
-      document.getElementById('amenitiesList').innerHTML = t.amenities.map(a => `<div class="amenity-item">${a}</div>`).join('');
-      document.getElementById('reviewsContainer').innerHTML = t.reviews.map(r => `<div class="review-card"><div class="stars">★★★★★</div><p style="margin:16px 0;">${r.text}</p><div class="reviewer">${r.author}</div></div>`).join('');
-      let tableHtml = `<thead><tr>${t.tableHeaders.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${t.tableRows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      document.getElementById('discountsContainer').innerHTML =
+        `<div style="margin-top:24px;">${t.discounts.map(d => `<span class="discount-badge">${d}</span>`).join('')}</div>`;
+      document.getElementById('amenitiesList').innerHTML = t.amenities.map(a =>
+        `<div class="amenity-item">${a}</div>`).join('');
+      document.getElementById('reviewsContainer').innerHTML = t.reviews.map(r =>
+        `<div class="review-card"><div class="stars">★★★★★</div><p style="margin:16px 0;">${r.text}</p><div class="reviewer">${r.author}</div></div>`
+      ).join('');
+      let tableHtml =
+        `<thead><tr>${t.tableHeaders.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${t.tableRows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>`;
       document.getElementById('priceTable').innerHTML = tableHtml;
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset
+        .lang === lang));
     }
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => { currentLang = btn.dataset.lang; updateUI(currentLang); }));
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      currentLang = btn
+        .dataset.lang;
+      updateUI(currentLang);
+    }));
     updateUI('bg');
 
     const chatToggle = document.querySelector('.chat-toggle');
@@ -1056,6 +1347,7 @@
     const sendBtn = document.getElementById('sendChat');
     chatToggle.onclick = () => chatBox.classList.toggle('open');
     closeChat.onclick = () => chatBox.classList.remove('open');
+
     function addMessage(text, isUser = false) {
       const div = document.createElement('div');
       div.className = `message ${isUser ? 'user-msg' : 'bot-msg'}`;
@@ -1063,16 +1355,32 @@
       chatMessages.appendChild(div);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+
     function botReply(msg) {
       const lower = msg.toLowerCase();
-      if (lower.includes('цена') || lower.includes('price')) return "Двойна стая от 56 до 130 EUR. Вижте таблицата с цени!";
-      if (lower.includes('условия') || lower.includes('terms')) return "Общите условия са в PDF линка под бутона за резервация.";
-      if (lower.includes('лифт') || lower.includes('gondola')) return "Хотелът е на 350 метра от лифта (около 10 мин. пеша).";
-      return "Благодаря! За точна оферта се свържете на +359 889 220 284 или вижте PDF с условията.";
+      const t = translations[currentLang];
+      if (lower.includes('цена') || lower.includes('price'))
+        return t.botPrice;
+      if (lower.includes('условия') || lower.includes('terms'))
+        return t.botTerms;
+      if (lower.includes('лифт') || lower.includes('gondola'))
+        return t.botGondola;
+      return t.botDefault;
     }
-    sendBtn.onclick = () => { if (chatInput.value.trim()) { addMessage(chatInput.value, true); const q = chatInput.value; chatInput.value = ""; setTimeout(() => addMessage(botReply(q), false), 400); } };
+    sendBtn.onclick = () => {
+      if (chatInput.value.trim()) {
+        addMessage(chatInput.value, true);
+        const q = chatInput.value;
+        chatInput.value = "";
+        setTimeout(() => addMessage(botReply(q), false), 400);
+      }
+    };
     chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
-    document.getElementById('bookNowBtn').addEventListener('click', (e) => { e.preventDefault(); alert("📅 За резервация: +359 889 220 284 или rahoff_bansko@yahoo.com"); });
+    document.getElementById('bookNowBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("📅 За резервация: +359 889 220 284 или rahoff_bansko@yahoo.com");
+    });
   </script>
 </body>
+
 </html>
