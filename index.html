@@ -115,7 +115,7 @@
         }
 
         .navbar-logo2-img {
-            height: 50px;
+            height: 90px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.25));
@@ -162,7 +162,7 @@
         .booking-logo-img,
         .tripadvisor-logo-img,
         .expedia-logo-img {
-            width: 700px !important;
+            width: 100px !important;
             height: auto !important;
             object-fit: contain;
             vertical-align: middle;
@@ -325,11 +325,6 @@
             border-left: 5px solid #8bb56a;
             padding-left: 20px;
             color: #e9f5db;
-        }
-
-        h3.section-title {
-            font-size: 1.8rem;
-            margin-bottom: 24px;
         }
 
         .gallery-grid {
@@ -812,7 +807,7 @@
 
         .chat-input-area button {
             background: #b66b2c;
-            bordernone;
+            border: none;
             border-radius: 40px;
             padding: 0 16px;
             cursor: pointer;
@@ -848,9 +843,9 @@
                 </div>
                 <div class="nav-links">
                     <a href="#" id="navHome">Начало</a>
-                    <a href="#rooms" id="navReviews">Отзиви</a>
+                    <a href="#reviews" id="navReviews">Отзиви</a>
                     <a href="#rooms" id="navRooms">Стаи</a>
-                    <a href="#rooms" id="navFacilities">Услуги</a>
+                    <a href="#amenities" id="navFacilities">Услуги</a>
                     <a href="#book-now-section" class="btn-book-nav" id="navBook">Резервация</a>
                 </div>
             </div>
@@ -882,7 +877,6 @@
         <h2 class="section-title" id="galleryTitle">Нашата галерия</h2>
         <div class="gallery-grid" id="galleryGrid"></div>
 
-        <!-- Google Maps location added here, exactly on the previously empty space -->
         <section id="location-map">
             <h2 class="section-title">📍 Намерете ни на картата</h2>
             <div class="map-container">
@@ -902,6 +896,10 @@
             <div class="bansko-info-grid" id="banskoInfoGrid"></div>
         </section>
 
+        <section id="reviews">
+            <h2 class="section-title" id="reviewsTitle">Какво обичат гостите</h2>
+            <div class="review-grid" id="reviewsContainer"></div>
+        </section>
 
         <section id="rooms">
             <h2 class="section-title" id="roomsTitle">Настаняване & цени</h2>
@@ -910,18 +908,19 @@
             </div>
             <div id="discountsContainer"></div>
             <p id="priceNote" style="margin-top:16px; font-size:0.85rem;"></p>
-            <h3 class="section-title" id="reviewsTitle">Какво обичат гостите</h3>
-            <div class="review-grid" id="reviewsContainer"></div>
-            <h3 class="section-title" id="amenitiesTitle">Удобства</h3>
-            <div class="amenities-list" id="amenitiesList"></div>
         </section>
 
+        <section id="amenities">
+            <h2 class="section-title" id="amenitiesTitle">Удобства</h2>
+            <div class="amenities-list" id="amenitiesList"></div>
+        </section>
 
         <div id="book-now-section">
             <div class="book-card">
                 <h2 id="bookTitle">Осигурете своята планинска почивка</h2>
                 <p id="bookDesc">Най-добра цена · Безплатна анулация · Директен контакт</p>
-                <a href="#" class="btn-book" id="bookNowBtn">Провери наличност →</a>
+                <a href="https://www.booking.com/hotel/bg/rahoff-bansko.bg.html" target="_blank"
+                    rel="noopener noreferrer" class="btn-book" id="bookNowBtn">Провери наличност →</a>
                 <div class="terms-link">
                     <a href="terms.pdf" target="_blank" id="pdfLink1"><i class="fas fa-file-pdf"></i> Общи условия и
                         политика за
@@ -979,8 +978,8 @@
                                 style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
                                 onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=TripAdvisor'">
                         </a>
-                        <a href="https://www.expedia.com" target="_blank" rel="noopener noreferrer"
-                            style="color:#c2e0a2; text-decoration: none;">
+                        <a href="https://www.expedia.com/Hotel-Search?destination=Bansko&hotelId=rahoff-hotel"
+                            target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
                             <img src="logos/expedia-logo.png" alt="Expedia" class="expedia-logo-img"
                                 style="width: 150px; height: auto; display: block;"
                                 onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Expedia'">
@@ -1148,8 +1147,7 @@
                         ]
                     }
                 ],
-                reviewsTitle: "Какво обичат гостите",
-                roomsTitle: "Настаняване & цени",
+                reviewsTitle: "Какво обичат гостите", roomsTitle: "Настаняване & цени",
                 amenitiesTitle: "Удобства",
                 bookTitle: "Осигурете своята планинска почивка",
                 bookDesc: "Най-добра цена · Безплатна анулация · Директен контакт",
@@ -1160,102 +1158,6 @@
                 footerCopy: "© 2025 Хотел Рахофф – Банско",
                 chatHeader: "Асистент Рахофф",
                 welcomeMsg: "👋 Здравейте! Питайте ме за цени, лифт или общи условия.",
-                priceNote: "*Коледна вечеря (24€) · Новогодишна гала (60€).",
-                featureList: [
-                    { icon: "fas fa-check-circle", text: "79+ потвърдени отзива" },
-                    { icon: "fas fa-location-dot", text: "350 м до лифта" },
-                    { icon: "fas fa-utensils", text: "Домашна кухня" }
-                ],
-                discounts: ["🎁 10% отстъпка при 5+ нощувки", "👶 Деца до 2 г. безплатно",
-                    "🧒 Деца до 12 г. -50%", "🍽️ Закуска: 8 €"
-                ],
-                amenities: ["🔥 Камина", "🌿 Тераса", "🧖 Сауна", "💦 Джакузи", "🏋️ Фитнес", "🎱 Билярд",
-                    "🚲 Безплатни велосипеди", "🏔️ Ски инструктор", "🍷 Механа", "🅿️ Паркинг"
-                ],
-                reviews: [
-                    {
-                        text: "Невероятно гостоприемство! Мария и Красимир се отнасят като със семейство. Чисти стаи, гледка.",
-                        author: "— Марина, САЩ"
-                    },
-                    {
-                        text: "Всичко перфектно — джакузи след ски, вкусни вечери, най-добро съотношение.",
-                        author: "— Елена, Румъния"
-                    },
-                    { text: "Истинско бижу. Уютно, чисто, градина с барбекю.", author: "— Джиани, Румъния" },
-                    {
-                        text: "Незабравим престой — традиционна вечеря, сауна, безплатни велосипеди.",
-                        author: "— Йордан, България"
-                    }
-                ],
-                tableHeaders: ["Тип стая", "01-20 дек 2025", "21-27 дек 2025", "28 дек - 02 яну",
-                    "16 апр - 30 ное"
-                ],
-                tableRows: [
-                    ["Единична", "51 €", "65 €", "100 €", "43 €"],
-                    ["Двойна", "68 €", "86 €", "130 €", "56 €"],
-                    ["Двойна лукс", "73 €", "91 €", "135 €", "56 €"],
-                    ["Тройна", "102 €", "129 €", "195 €", "84 €"],
-                    ["Апартамент", "136 €", "172 €", "260 €", "112 €"],
-                    ["Мезонет", "209 €", "263 €", "395 €", "168 €"]
-                ]
-            },
-            en: {
-                logoSub: "Bansko · Pirin Majesty",
-                navHome: "Home",
-                navReviews: "Reviews",
-                navRooms: "Rooms",
-                navFacilities: "Facilities",
-                navBook: "Book now",
-                heroBadge: "✦ Family-run · 4.9 Excellent ✦",
-                heroTitle: "Your peaceful escape<br>in the Pirin Mountains",
-                heroDesc: "Just 10 min walk to Gondola lift · Panoramic views · Homemade cuisine",
-                ratingValue: "4.9",
-                rankingText: "#8 of 99 hotels in Bansko",
-                reviewsCount: "79+ verified reviews",
-                galleryTitle: "Our Gallery",
-                banskoInfoTitle: "Discover Bansko",
-                banskoInfoDesc: "Over <strong>180 crystal-clear glacial lakes</strong>, majestic peaks and endless adventures await you in the Pirin Mountains — a year-round destination for unforgettable experiences.",
-                banskoInfoCards: [
-                    {
-                        icon: "🏔️", title: "Summer Adventures",
-                        items: ["Hikes to Okoto & Ribnoto lakes", "Climb Vihren Peak (2914 m)",
-                            "Mountain picnics", "Trout fishing", "Horseback riding & ATV",
-                            "Cycling routes", "Pirin Golf course"
-                        ]
-                    },
-                    {
-                        icon: "🎿", title: "Winter Sports",
-                        items: ["Skiing & snowboarding", "Ice skating & sledding",
-                            "10 min walk to gondola", "Ski instructor", "Night skiing"
-                        ]
-                    },
-                    {
-                        icon: "🏛️", title: "Culture & Excursions",
-                        items: ["Rila Monastery + Blagoevgrad market", "Melnik & Rozhen Monastery",
-                            "Dobarsko village church", "Bear Park in Belitsa",
-                            "Baba Vanga's house in Rupite", "Leshten & Kovachevitsa villages"
-                        ]
-                    },
-                    {
-                        icon: "🚗", title: "Nearby Destinations",
-                        items: ["Kavala, Greece (2 hr drive)", "Velingrad retro train",
-                            "Mineral pools & spas", "Oldest tree in Bulgaria (1300 yrs)",
-                            "Banderitsa hut & Bezbog peak", "St. Nicholas waterfall"
-                        ]
-                    }
-                ],
-                reviewsTitle: "What guests love",
-                roomsTitle: "Accommodation & prices",
-                amenitiesTitle: "Amenities",
-                bookTitle: "Secure your mountain escape",
-                bookDesc: "Best rate · Free cancellation · Direct contact",
-                termsTitle: "Terms & Privacy Policy",
-                termsDesc: "Full info about stay, cancellation, GDPR and your rights.",
-                addressFooter: "76 Stefan Karadja St.\nBansko 2770, Bulgaria\n350 m from Gondola · Sofia Airport ~180 km",
-                contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786",
-                footerCopy: "© 2025 Rahoff Hotel – Bansko",
-                chatHeader: "Rahoff Assistant",
-                welcomeMsg: "👋 Hello! Ask me about prices, gondola or terms & conditions.",
                 priceNote: "*Коледна вечеря (24€) · Новогодишна гала (60€).",
                 discounts: ["🎁 10% отстъпка при 5+ нощувки", "👶 Деца до 2 г. безплатно",
                     "🧒 Деца до 12 г. -50%", "🍽️ Закуска: 8 €"
@@ -1349,11 +1251,6 @@
                 chatHeader: "Rahoff Assistant",
                 welcomeMsg: "👋 Hello! Ask me about prices, gondola or terms & conditions.",
                 priceNote: "*Christmas dinner (24€) · New Year's gala (60€).",
-                featureList: [
-                    { icon: "fas fa-check-circle", text: "79+ verified reviews" },
-                    { icon: "fas fa-location-dot", text: "350 m to gondola" },
-                    { icon: "fas fa-utensils", text: "Homemade cuisine" }
-                ],
                 discounts: ["🎁 10% off for 5+ nights", "👶 Children under 2 free", "🧒 Under 12: -50%",
                     "🍽️ Breakfast: 8 €"
                 ],
@@ -1407,7 +1304,8 @@
             document.getElementById('heroDesc').innerText = t.heroDesc;
             document.getElementById('ratingValue').innerText = t.ratingValue;
             document.getElementById('rankingText').innerText = t.rankingText;
-            document.getElementById('featureList').innerHTML = t.featureList.map(item => `<p><i class="${item.icon}"></i> ${item.text}</p>`).join('');
+            document.getElementById('featureList').innerHTML =
+                `<p><i class="fas fa-check-circle"></i> ${t.reviewsCount}</p><p><i class="fas fa-location-dot"></i> 350 м до лифта</p><p><i class="fas fa-utensils"></i> Домашна кухня</p>`;
             document.getElementById('galleryTitle').innerText = t.galleryTitle;
             document.getElementById('banskoInfoTitle').innerText = t.banskoInfoTitle;
             document.getElementById('banskoInfoDesc').innerHTML = t.banskoInfoDesc;
@@ -1487,10 +1385,6 @@
             }
         };
         chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
-        document.getElementById('bookNowBtn').addEventListener('click', (e) => {
-            e.preventDefault();
-            alert("📅 За резервация: +359 889 220 284 или rahoff_bansko@yahoo.com");
-        });
     </script>
 </body>
 
