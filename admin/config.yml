@@ -1,17 +1,18 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: tvoiat-potrebitel/tvoiat-proekt # Заменете с вашето име/репозитори
+  branch: main # Или master
 
-media_folder: "images"
+media_folder: "public/images" # Къде ще се записват новите снимки
 public_folder: "/images"
 
 collections:
-  - name: "pages"
-    label: "Страници"
-    files:
-      - label: "Начална страница"
-        name: "home"
-        file: "index.html"
-        fields:
-          - {label: "Заглавие", name: "title", widget: "string"}
-          - {label: "Текст", name: "body", widget: "markdown"}
+  - name: "products"
+    label: "Продукти"
+    folder: "content/products" # Къде се съхраняват данните (напр. в JSON или Markdown)
+    create: true
+    fields:
+      - { label: "Име на продукта", name: "title", widget: "string" }
+      - { label: "Цена", name: "price", widget: "number", value_type: "float" }
+      - { label: "Снимка", name: "image", widget: "image" }
+      - { label: "Описание", name: "body", widget: "markdown" }
