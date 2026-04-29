@@ -1,18 +1,25 @@
 backend:
   name: github
-  repo: tvoiat-potrebitel/tvoiat-proekt # Заменете с вашето име/репозитори
-  branch: main # Или master
+  repo: SergeyAld/rahoff-hotel
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: /auth
 
-media_folder: "public/images" # Къде ще се записват новите снимки
-public_folder: "/images"
+media_folder: "gallery" # Използваме твоята съществуваща папка
+public_folder: "gallery"
 
 collections:
-  - name: "products"
-    label: "Продукти"
-    folder: "content/products" # Къде се съхраняват данните (напр. в JSON или Markdown)
-    create: true
-    fields:
-      - { label: "Име на продукта", name: "title", widget: "string" }
-      - { label: "Цена", name: "price", widget: "number", value_type: "float" }
-      - { label: "Снимка", name: "image", widget: "image" }
-      - { label: "Описание", name: "body", widget: "markdown" }
+  - name: "data"
+    label: "Данни за сайта"
+    files:
+      - name: "prices"
+        label: "Цени на стаи"
+        file: "prices.json" # CMS-ът ще създаде и редактира този файл
+        fields:
+          - label: "Списък със стаи"
+            name: "rooms"
+            widget: "list"
+            fields:
+              - { label: "Име на стаята", name: "name", widget: "string" }
+              - { label: "Цена", name: "price", widget: "string" }
+              - { label: "Снимка", name: "image", widget: "image" }
