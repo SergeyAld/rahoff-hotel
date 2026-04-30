@@ -9,18 +9,18 @@ media_folder: "gallery"
 public_folder: "gallery"
 
 collections:
-  - name: "content"
-    label: "Управление на цени"
+  - name: "prices_collection"
+    label: "Цени"
     files:
-      - name: "prices"
-        label: "Цени (Всички езици)"
+      - name: "hotel_prices"
+        label: "Редактиране на цени"
         file: "data.json"
         fields:
-          - label: "Български (BG)"
+          - label: "Данни за цените"
             name: "bg"
             widget: "object"
             fields:
-              - label: "Списък с цени (BG)"
+              - label: "Таблица с цени"
                 name: "tableRows"
                 widget: "list"
                 fields:
@@ -29,16 +29,3 @@ collections:
                   - {label: "Период 2", name: "2", widget: "string"}
                   - {label: "Нова Година", name: "3", widget: "string"}
                   - {label: "Лято", name: "4", widget: "string"}
-          - label: "English (EN)"
-            name: "en"
-            widget: "object"
-            fields:
-              - label: "Price List (EN)"
-                name: "tableRows"
-                widget: "list"
-                fields:
-                  - {label: "Room Type", name: "0", widget: "string"}
-                  - {label: "Period 1", name: "1", widget: "string"}
-                  - {label: "Period 2", name: "2", widget: "string"}
-                  - {label: "New Year", name: "3", widget: "string"}
-                  - {label: "Summer", name: "4", widget: "string"}
