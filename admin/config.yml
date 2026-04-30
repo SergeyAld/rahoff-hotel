@@ -13,7 +13,32 @@ collections:
     label: "Управление на цени"
     files:
       - name: "prices"
-        label: "Цени"
+        label: "Цени (Всички езици)"
         file: "data.json"
         fields:
-          - {label: "Данни", name: "bg", widget: "object", fields: [{label: "Редове", name: "tableRows", widget: "list", fields: [{label: "Стая", name: "0", widget: "string"}]}]}
+          - label: "Български (BG)"
+            name: "bg"
+            widget: "object"
+            fields:
+              - label: "Списък с цени (BG)"
+                name: "tableRows"
+                widget: "list"
+                fields:
+                  - {label: "Тип стая", name: "0", widget: "string"}
+                  - {label: "Период 1", name: "1", widget: "string"}
+                  - {label: "Период 2", name: "2", widget: "string"}
+                  - {label: "Нова Година", name: "3", widget: "string"}
+                  - {label: "Лято", name: "4", widget: "string"}
+          - label: "English (EN)"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Price List (EN)"
+                name: "tableRows"
+                widget: "list"
+                fields:
+                  - {label: "Room Type", name: "0", widget: "string"}
+                  - {label: "Period 1", name: "1", widget: "string"}
+                  - {label: "Period 2", name: "2", widget: "string"}
+                  - {label: "New Year", name: "3", widget: "string"}
+                  - {label: "Summer", name: "4", widget: "string"}
