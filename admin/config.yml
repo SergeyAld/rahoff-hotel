@@ -2,7 +2,8 @@ backend:
   name: github
   repo: SergeyAld/rahoff-hotel
   branch: main
-  base_url: https://decap-cms-proxy.vercel.app
+  # Използваме този адрес за оторизация, за да не се налага да вдигаш собствен сървър
+  base_url: https://decap-auth.vercel.app
   auth_endpoint: /api/auth
 
 media_folder: "gallery"
