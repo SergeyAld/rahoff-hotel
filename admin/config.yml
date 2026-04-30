@@ -32,6 +32,16 @@ collections:
         label: "Prices (English)"
         file: "data.json"
         fields:
+          - label: "Price List"
+            name: "en.tableRows"
+            widget: "list"
+            fields:
+              - {label: "Room Type", name: "0", widget: "string"}
+              - {label: "Period 1", name: "1", widget: "string"}
+              - {label: "Period 2", name: "2", widget: "string"}
+              - {label: "New Year", name: "3", widget: "string"}
+              - {label: "Summer", name: "4", widget: "string"}
+fields:
           - label: "Списък с цени"
             name: "bg.tableRows"
             widget: "list"
@@ -42,7 +52,7 @@ collections:
               - {label: "Нова Година", name: "3", widget: "string"}
               - {label: "Лято", name: "4", widget: "string"}
 
-      - name: "prices_en"
+      -name: "prices_en"
         label: "Prices (English)"
         file: "data.json"
         fields:
@@ -55,3 +65,1395 @@ collections:
               - {label: "Period 2", name: "2", widget: "string"}
               - {label: "New Year", name: "3", widget: "string"}
               - {label: "Summer", name: "4", widget: "string"}
+
+На ср, 29.04.2026 г., 18:53 ч. Сергей Валериев <valerievsergej@gmail.com> написа:
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Rahoff Hotel | Банско - Официален сайт</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0e1712;
+            color: #eceadc;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid rgba(168, 208, 138, 0.2);
+        }
+
+        .logo h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #b7d968, #8bb56a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: #9ab87a;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #d4e2c6;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #c7f0a3;
+        }
+
+        .btn-book-nav {
+            background: #5f8b4c;
+            color: #0e1712 !important;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            background: #1f2c1b;
+            padding: 5px;
+            border-radius: 48px;
+            margin-right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 6px 18px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #bcd0a4;
+            transition: 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #7ba35f;
+            color: #0e1712;
+        }
+
+        .navbar-logo-img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.25));
+        }
+
+        .navbar-logo2-img {
+            height: 150px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.25));
+        }
+
+        .hero-logo-strip {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(168, 208, 138, 0.12);
+        }
+
+        .hero-logo-strip img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 8px rgba(168, 208, 138, 0.2));
+        }
+
+        .footer-logo-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 32px 0 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo-strip img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 6px rgba(168, 208, 138, 0.18));
+            transition: opacity 0.2s;
+        }
+
+        .footer-logo-strip img:hover {
+            opacity: 1;
+        }
+
+        .booking-logo-img,
+        .tripadvisor-logo-img,
+        .expedia-logo-img {
+            width: 100px !important;
+            height: auto !important;
+            object-fit: contain;
+            vertical-align: middle;
+            transition: opacity 0.2s;
+        }
+
+        .booking-logo-img:hover,
+        .tripadvisor-logo-img:hover,
+        .expedia-logo-img:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(125deg, #132118 0%, #1e2f1c 100%);
+            border-radius: 40px;
+            margin: 40px 0 40px;
+            padding: 48px 48px;
+            border: 1px solid rgba(168, 208, 138, 0.25);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: flex-start;
+        }
+
+        .hero-left {
+            flex: 1.4;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                flex-direction: column;
+            }
+
+            .hero-left,
+            .hero-right {
+                width: 100%;
+            }
+        }
+
+        .hero-badge {
+            background: #5f8b4c30;
+            color: #c7f0a3;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-left h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            color: #f5fae6;
+            margin-bottom: 20px;
+        }
+
+        .hero-left p {
+            font-size: 1rem;
+            color: #c0ddb0;
+        }
+
+        @media (max-width: 650px) {
+            .hero {
+                padding: 32px 24px;
+            }
+
+            .hero-left h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4);
+            display: block;
+        }
+
+        .hero-rating {
+            background: rgba(30, 45, 25, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 14px 20px;
+            border: 1px solid #6a994e;
+            text-align: center;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .hero-rating .stars {
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            margin-bottom: 6px;
+            color: #f5b042;
+        }
+
+        .hero-rating .score {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #f5b042;
+        }
+
+        .hero-rating .ranking {
+            font-size: 0.85rem;
+            margin: 8px 0;
+            color: #c0e0a0;
+        }
+
+        .hero-rating .divider {
+            height: 1px;
+            background: #3a5a3a;
+            margin: 10px 0;
+        }
+
+        .hero-rating .feature-list {
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .hero-rating .feature-list i {
+            color: #8bb56a;
+            width: 20px;
+            margin-right: 4px;
+        }
+
+        .hero-rating .feature-list p {
+            margin: 4px 0;
+        }
+
+        section {
+            margin: 70px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 32px;
+            border-left: 5px solid #8bb56a;
+            padding-left: 20px;
+            color: #e9f5db;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 30px 0 50px;
+        }
+
+        @media (max-width: 550px) {
+            .gallery-grid {
+                gap: 16px;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            border: 1px solid #3a5a3a;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: #8bb56a;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .more-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #f5fae6;
+            gap: 8px;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #e0f0c0;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            z-index: 10000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+
+        .lb-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            cursor: pointer;
+            color: white;
+            z-index: 10001;
+        }
+
+        .lb-prev,
+        .lb-next {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            z-index: 10001;
+        }
+
+        .lb-prev {
+            left: 10px;
+        }
+
+        .lb-next {
+            right: 10px;
+        }
+
+        .lb-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ccc;
+            background: rgba(0, 0, 0, 0.6);
+            width: fit-content;
+            margin: 0 auto;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            z-index: 10001;
+        }
+
+        .price-table-wrapper {
+            overflow-x: auto;
+            background: #1b2a16;
+            border-radius: 32px;
+            padding: 8px;
+            border: 1px solid #3a5a2e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        th {
+            text-align: left;
+            padding: 16px 14px;
+            background-color: #253d1e;
+            font-weight: 600;
+            color: #c0e0a0;
+        }
+
+        td {
+            padding: 14px 14px;
+            border-bottom: 1px solid #2e4a24;
+            color: #e2efd4;
+            font-weight: 500;
+        }
+
+        .discount-badge {
+            background: #2c4423;
+            padding: 8px 18px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 8px 8px 0 0;
+            font-size: 0.85rem;
+            color: #d2f0b0;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .review-card {
+            background: #1f2c1b;
+            border-radius: 28px;
+            padding: 28px;
+            border: 1px solid #3a5432;
+            transition: 0.25s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            background: #263f21;
+        }
+
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .amenity-item {
+            background: #1f2c1b;
+            padding: 12px 20px;
+            border-radius: 48px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #456a38;
+            color: #d0e6bc;
+        }
+
+        .bansko-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
+            margin: 28px 0;
+        }
+
+        .bansko-card {
+            background: #1f2c1b;
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid #3a5432;
+            transition: 0.25s;
+        }
+
+        .bansko-card:hover {
+            transform: translateY(-4px);
+            background: #263f21;
+            border-color: #5f8b4c;
+        }
+
+        .bansko-card .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .bansko-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #c7f0a3;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .bansko-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bansko-card ul li {
+            padding: 6px 0;
+            font-size: 0.9rem;
+            color: #c0ddb0;
+            border-bottom: 1px solid rgba(168, 208, 138, 0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .bansko-card ul li::before {
+            content: '•';
+            color: #8bb56a;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .bansko-intro {
+            font-size: 1.1rem;
+            color: #c0ddb0;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 800px;
+            background: #1b2a16;
+            padding: 20px 28px;
+            border-radius: 20px;
+            border: 1px solid #3a5a2e;
+        }
+
+        .bansko-intro strong {
+            color: #c7f0a3;
+        }
+
+        .book-card {
+            background: linear-gradient(135deg, #1e3a1f 0%, #2b4a22 100%);
+            border-radius: 36px;
+            padding: 48px 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+            border: 1px solid #7ba35f;
+        }
+
+        .book-card h2 {
+            font-size: 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 12px;
+            color: #f7ffe0;
+        }
+
+        .btn-book {
+            background: #f5b042;
+            color: #1e2a1c;
+            padding: 16px 42px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-book:hover {
+            background: #e6a032;
+            transform: scale(1.02);
+        }
+
+        .terms-link {
+            margin-top: 28px;
+        }
+
+        .terms-link a {
+            color: #e0f0c0;
+            text-decoration: underline;
+            margin: 0 6px;
+        }
+
+        .terms-section {
+            background: #182618;
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 60px 0 40px;
+            border: 1px solid #456a38;
+        }
+
+        .pdf-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #5f8b4c;
+            color: #0e1712;
+            padding: 14px 28px;
+            border-radius: 48px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background: #0d1610;
+            width: 100%;
+            margin-top: 60px;
+            padding: 48px 0 32px;
+            border-top: 1px solid #2a3a2a;
+        }
+
+        .footer .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 24px;
+        }
+
+        .contact-info h4 {
+            color: #c2e0a2;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            line-height: 1.8;
+            color: #c0dbb0;
+        }
+
+        .contact-info a {
+            color: #c2e0a2;
+            text-decoration: none;
+        }
+
+        hr {
+            border-color: #3b5a2e;
+            margin: 32px 0 20px;
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 1000;
+        }
+
+        .chat-toggle {
+            background: #5f8b4c;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-box {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 340px;
+            background: #1e2a1c;
+            border-radius: 28px;
+            display: none;
+            flex-direction: column;
+            border: 1px solid #7ba35f;
+        }
+
+        .chat-box.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: #2b4a22;
+            padding: 16px 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            color: #eaf7da;
+        }
+
+        .chat-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 16px;
+            background: #162214;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .bot-msg {
+            background: #2e4a24;
+            align-self: flex-start;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #e2efd4;
+        }
+
+        .user-msg {
+            background: #5f8b4c;
+            color: #0e1712;
+            align-self: flex-end;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .chat-input-area {
+            display: flex;
+            border-top: 1px solid #456a38;
+            padding: 12px;
+            gap: 8px;
+            background: #1f2c1b;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 40px;
+            border: none;
+            background: #2c4423;
+            color: white;
+        }
+
+        .chat-input-area button {
+            background: #b66b2c;
+            border: none;
+            border-radius: 40px;
+            padding: 0 16px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #3a5a2e;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo" style="display:flex;align-items:center;gap:14px;">
+                <img src="logos/logo1.jpg" alt="Rahoff Hotel Logo" class="navbar-logo-img"
+                    onerror="this.style.display='none'">
+                <div>
+                    <img src="logos/logo2.jpg" alt="Rahoff Hotel" class="navbar-logo2-img"
+                        onerror="this.style.display='none'">
+                    <p id="logoSub">Банско · Пирин Величие</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn active" data-lang="bg">БГ</button>
+                </div>
+                <div class="nav-links">
+                    <a href="#" id="navHome">Начало</a>
+                    <a href="#reviews" id="navReviews">Отзиви</a>
+                    <a href="#rooms" id="navRooms">Стаи</a>
+                    <a href="#amenities" id="navFacilities">Услуги</a>
+                    <a href="#book-now-section" class="btn-book-nav" id="navBook">Резервация</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-badge" id="heroBadge">✦ Семеен хотел · 4.9 Отличен ✦</div>
+                    <h1 id="heroTitle">Вашето спокойно бягство<br>в Пирин планина</h1>
+                    <p id="heroDesc">Само 10 мин. пеша до лифта · Панорамна гледка · Домашна кухня</p>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="gallery/jpg_058.jpg" alt="Rahoff Hotel" loading="lazy"
+                            onerror="this.src='https://placehold.co/600x600/2a442a/8bb56a?text=Rahoff+Hotel'">
+                    </div>
+                    <div class="hero-rating">
+                        <div class="stars">★★★★★</div>
+                        <div class="score"><span id="ratingValue">4.9</span> <span>/5</span></div>
+                        <div class="ranking" id="rankingText">#8 от 99 хотела в Банско</div>
+                        <div class="divider"></div>
+                        <div class="feature-list" id="featureList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="galleryTitle">Нашата галерия</h2>
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+        <section id="location-map">
+            <h2 class="section-title">📍 Намерете ни на картата</h2>
+            <div class="map-container">
+                <iframe
+                    src="https://maps.google.com/maps?q=76%20Stefan%20Karadja%20St%2C%20Bansko%202770&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Карта с местоположението на Хотел Рахофф">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="bansko-info">
+            <h2 class="section-title" id="banskoInfoTitle">Открийте Банско</h2>
+            <div class="bansko-intro" id="banskoInfoDesc">Над <strong>180 кристално чисти ледникови
+                    езера</strong>, величествени върхове и безкрайни приключения ви очакват в Пирин планина —
+                целогодишна дестинация за незабравими преживявания.</div>
+            <div class="bansko-info-grid" id="banskoInfoGrid"></div>
+        </section>
+
+        <section id="reviews">
+            <h2 class="section-title" id="reviewsTitle">Какво обичат гостите</h2>
+            <div class="review-grid" id="reviewsContainer"></div>
+        </section>
+
+        <section id="rooms">
+            <h2 class="section-title" id="roomsTitle">Настаняване & цени</h2>
+            <div class="price-table-wrapper">
+                <table id="priceTable"></table>
+            </div>
+            <div id="discountsContainer"></div>
+            <p id="priceNote" style="margin-top:16px; font-size:0.85rem;"></p>
+        </section>
+
+        <section id="amenities">
+            <h2 class="section-title" id="amenitiesTitle">Удобства</h2>
+            <div class="amenities-list" id="amenitiesList"></div>
+        </section>
+
+        <div id="book-now-section">
+            <div class="book-card">
+                <h2 id="bookTitle">Осигурете своята планинска почивка</h2>
+                <p id="bookDesc">Най-добра цена · Безплатна анулация · Директен контакт</p>
+                <a href="https://www.booking.com/hotel/bg/rahoff-bansko.bg.html" target="_blank"
+                    rel="noopener noreferrer" class="btn-book" id="bookNowBtn">Провери наличност →</a>
+                <div class="terms-link">
+                    <a href="terms.pdf" target="_blank" id="pdfLink1"><i class="fas fa-file-pdf"></i> Общи условия и
+                        политика за
+                        поверителност (PDF)</a>
+                    <span>|</span>
+                    <a href="terms.pdf" download id="pdfDownload1"><i class="fas fa-download"></i> Изтегли PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="terms-section">
+            <div>
+                <h3 id="termsTitle"><i class="fas fa-gavel"></i> Общи условия & Политика</h3>
+                <p id="termsDesc">Пълна информация за настаняване, анулация, GDPR и вашите права.</p>
+                <a href="terms.pdf" target="_blank" class="pdf-link-btn" id="pdfLink2"><i class="fas fa-file-pdf"></i>
+                    Отвори
+                    PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+
+            <div class="footer-logo-strip">
+                <img src="logos/logo3.jpg" alt="Rahoff Hotel Logo 3" onerror="this.style.display='none'">
+            </div>
+
+            <div class="contact-info">
+                <div>
+                    <h4>📍 Адрес</h4>
+                    <p id="addressFooter">76 Stefan Karadja St.<br>Банско 2770, България<br>350 м от лифта · Летище
+                        София
+                        ~180 км
+                    </p>
+                </div>
+                <div>
+                    <h4>📞 Контакт</h4>
+                    <p id="contactFooter">rahoff_bansko@yahoo.com<br>+359 889 220 284<br>+359 898 703 786</p>
+                </div>
+                <div>
+                    <h4>🔖 Резервация</h4>
+                    <p>
+                        <a href="https://www.booking.com/hotel/bg/rahoff-bansko.bg.html" target="_blank"
+                            rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
+                            <img src="logos/booking-logo.png" alt="Booking.com" class="booking-logo-img"
+                                style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
+                                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Booking.com'">
+                        </a>
+                        <a href="https://www.tripadvisor.com/Hotel_Review-g318868-d17928514-Reviews-Rahoff_Hotel-Bansko_Blagoevgrad_Province.html"
+                            target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
+                            <img src="logos/tripadvisor-logo.png" alt="TripAdvisor" class="tripadvisor-logo-img"
+                                style="width: 150px; height: auto; display: block; margin-bottom: 8px;"
+                                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=TripAdvisor'">
+                        </a>
+                        <a href="https://www.expedia.com/Hotel-Search?destination=Bansko&hotelId=rahoff-hotel"
+                            target="_blank" rel="noopener noreferrer" style="color:#c2e0a2; text-decoration: none;">
+                            <img src="logos/expedia-logo.png" alt="Expedia" class="expedia-logo-img"
+                                style="width: 150px; height: auto; display: block;"
+                                onerror="this.src='https://placehold.co/150x50/1e2a1c/8bb56a?text=Expedia'">
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <p style="text-align: center; font-size: 0.75rem;" id="footerCopy">© 2025 Хотел Рахофф – Банско</p>
+        </div>
+    </div>
+
+    <div class="chat-widget">
+        <div class="chat-toggle"><i class="fas fa-comment-dots"></i></div>
+        <div class="chat-box">
+            <div class="chat-header"><span><i class="fas fa-robot"></i> <span id="chatHeader">Асистент
+                        Рахофф</span></span><span class="close-chat" style="cursor:pointer;">✕</span></div>
+            <div class="chat-messages">
+                <div class="bot-msg" id="welcomeMsg">👋 Здравейте! Питайте ме за цени, лифт или общи условия.</div>
+            </div>
+            <div class="chat-input-area"><input type="text" id="chatInput" placeholder="Напишете съобщение..."><button
+                    id="sendChat"><i class="fas fa-paper-plane"></i></button></div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lbClose">&times;</span>
+        <span class="lb-prev" id="lbPrev">&#8249;</span>
+        <span class="lb-next" id="lbNext">&#8250;</span>
+        <img id="lbImg" src="" alt="">
+        <div class="lb-counter" id="lbCounter"></div>
+    </div>
+
+    <script>
+        const totalImages = 264;
+        const allImages = [];
+        for (let i = 1; i <= totalImages; i++) {
+            const num = String(i).padStart(3, '0');
+            allImages.push(`gallery/jpg_${num}.jpg`);
+        }
+
+        const previewImages = [
+            { src: 'gallery/jpg_225.jpg', label: 'Хотел Рахофф' },
+            { src: 'gallery/jpg_226.jpg', label: 'Хотел Рахофф' },
+            { src: 'gallery/jpg_262.jpg', label: 'Хотел Рахофф' },
+            { src: 'gallery/jpg_155.jpg', label: 'more picture...' }
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        previewImages.forEach((item, idx) => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            const img = document.createElement('img');
+            img.src = item.src;
+            img.alt = item.label;
+            img.onerror = function () {
+                this.src =
+                'https://placehold.co/600x600/2a442a/8bb56a?text=Image+missing';
+            };
+            div.appendChild(img);
+            if (idx === 3) {
+                const overlay = document.createElement('div');
+                overlay.className = 'more-overlay';
+                overlay.innerHTML = '<i class="fas fa-images"></i> повече снимки...';
+                div.appendChild(overlay);
+            } else {
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'gallery-label';
+                labelSpan.innerText = item.label;
+                div.appendChild(labelSpan);
+            }
+            div.addEventListener('click', () => openLightbox(0));
+            galleryGrid.appendChild(div);
+        });
+
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lbImg');
+        const lbCounter = document.getElementById('lbCounter');
+
+        function openLightbox(startIndex) {
+            currentIndex = startIndex;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            lbImg.src = allImages[currentIndex];
+            lbImg.onerror = function () {
+                this.src =
+                'https://placehold.co/1200x800/2a442a/8bb56a?text=Image+not+found';
+            };
+            lbCounter.innerText = `${currentIndex + 1} / ${totalImages}`;
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateLightbox();
+        }
+
+        document.getElementById('lbClose').addEventListener('click', closeLightbox);
+        document.getElementById('lbPrev').addEventListener('click', prevImage);
+        document.getElementById('lbNext').addEventListener('click', nextImage);
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        const translations = {
+            bg: {
+                logoSub: "Банско · Пирин Величие",
+                navHome: "Начало",
+                navReviews: "Отзиви",
+                navRooms: "Стаи",
+                navFacilities: "Услуги",
+                navBook: "Резервация",
+                heroBadge: "✦ Семеен хотел · 4.9 Отличен ✦",
+                heroTitle: "Вашето спокойно бягство<br>в Пирин планина",
+                heroDesc: "Само 10 мин. пеша до лифта · Панорамна гледка · Домашна кухня",
+                ratingValue: "4.9",
+                rankingText: "#8 от 99 хотела в Банско",
+                reviewsCount: "79+ потвърдени отзива",
+                galleryTitle: "Нашата галерия",
+                banskoInfoTitle: "Открийте Банско",
+                banskoInfoDesc: "Над <strong>180 кристално чисти ледникови езера</strong>, величествени върхове и безкрайни приключения ви очакват в Пирин планина — целогодишна дестинация за незабравими преживявания.",
+                banskoInfoCards: [
+                    {
+                        icon: "🏔️", title: "Летни приключения",
+                        items: ["Походи до езерата Окото и Рибното", "Изкачване на връх Вихрен (2914 м)",
+                            "Пикник сред природата", "Риболов на пъстърва", "Конна езда и ATV",
+                            "Веломаршрути", "Голф игрище „Пирин Голф\""
+                        ]
+                    },
+                    {
+                        icon: "🎿", title: "Зимни спортове",
+                        items: ["Ски и сноуборд", "Кънки и шейни", "10 мин пеша до лифта",
+                            "Ски инструктор", "Нощно каране"
+                        ]
+                    },
+                    {
+                        icon: "🏛️", title: "Култура & Екскурзии",
+                        items: ["Рилски манастир + пазар в Благоевград", "Мелник и Роженски манастир",
+                            "Църква в с. Добърско", "Парк за мечки в Белица",
+                            "Къща на баба Ванга в Рупите", "С. Лещен и Ковачевица"
+                        ]
+                    },
+                    {
+                        icon: "🚗", title: "Близки дестинации",
+                        items: ["Кавала, Гърция (2 ч с кола)", "Велинград с ретро влак",
+                            "Минерални басейни", "Най-старото дърво в България (1300 г.)",
+                            "Хижа Бъндерица и връх Безбог", "Водопад „Св. Никола\""
+                        ]
+                    }
+                ],
+                reviewsTitle: "Какво обичат гостите", roomsTitle: "Настаняване & цени",
+                amenitiesTitle: "Удобства",
+                bookTitle: "Осигурете своята планинска почивка",
+                bookDesc: "Най-добра цена · Безплатна анулация · Директен контакт",
+                termsTitle: "Общи условия & Политика",
+                termsDesc: "Пълна информация за настаняване, анулация, GDPR и вашите права.",
+                addressFooter: "76 Stefan Karadja St.\nБанско 2770, България\n350 м от лифта · Летище София ~180 км",
+                contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786",
+                footerCopy: "© 2025 Хотел Рахофф – Банско",
+                chatHeader: "Асистент Рахофф",
+                welcomeMsg: "👋 Здравейте! Питайте ме за цени, лифт или общи условия.",
+                priceNote: "*Коледна вечеря (24€) · Новогодишна гала (60€).",
+                discounts: ["🎁 10% отстъпка при 5+ нощувки", "👶 Деца до 2 г. безплатно",
+                    "🧒 Деца до 12 г. -50%", "🍽️ Закуска: 8 €"
+                ],
+                amenities: ["🔥 Камина", "🌿 Тераса", "🧖 Сауна", "💦 Джакузи", "🏋️ Фитнес", "🎱 Билярд",
+                    "🚲 Безплатни велосипеди", "🏔️ Ски инструктор", "🍷 Механа", "🅿️ Паркинг"
+                ],
+                reviews: [
+                    {
+                        text: "Невероятно гостоприемство! Мария и Красимир се отнасят като със семейство. Чисти стаи, гледка.",
+                        author: "— Марина, САЩ"
+                    },
+                    {
+                        text: "Всичко перфектно — джакузи след ски, вкусни вечери, най-добро съотношение.",
+                        author: "— Елена, Румъния"
+                    },
+                    { text: "Истинско бижу. Уютно, чисто, градина с барбекю.", author: "— Джиани, Румъния" },
+                    {
+                        text: "Незабравим престой — традиционна вечеря, сауна, безплатни велосипеди.",
+                        author: "— Йордан, България"
+                    }
+                ],
+                tableHeaders: ["Тип стая", "01-20 дек 2025", "21-27 дек 2025", "28 дек - 02 яну",
+                    "16 апр - 30 ное"
+                ],
+                tableRows: [
+                    ["Единична", "51 €", "65 €", "100 €", "43 €"],
+                    ["Двойна", "68 €", "86 €", "130 €", "56 €"],
+                    ["Двойна лукс", "73 €", "91 €", "135 €", "56 €"],
+                    ["Тройна", "102 €", "129 €", "195 €", "84 €"],
+                    ["Апартамент", "136 €", "172 €", "260 €", "112 €"],
+                    ["Мезонет", "209 €", "263 €", "395 €", "168 €"]
+                ]
+            },
+            en: {
+                logoSub: "Bansko · Pirin Majesty",
+                navHome: "Home",
+                navReviews: "Reviews",
+                navRooms: "Rooms",
+                navFacilities: "Facilities",
+                navBook: "Book now",
+                heroBadge: "✦ Family-run · 4.9 Excellent ✦",
+                heroTitle: "Your peaceful escape<br>in the Pirin Mountains",
+                heroDesc: "Just 10 min walk to Gondola lift · Panoramic views · Homemade cuisine",
+                ratingValue: "4.9",
+                rankingText: "#8 of 99 hotels in Bansko",
+                reviewsCount: "79+ verified reviews",
+                galleryTitle: "Our Gallery",
+                banskoInfoTitle: "Discover Bansko",
+                banskoInfoDesc: "Over <strong>180 crystal-clear glacial lakes</strong>, majestic peaks and endless adventures await you in the Pirin Mountains — a year-round destination for unforgettable experiences.",
+                banskoInfoCards: [
+                    {
+                        icon: "🏔️", title: "Summer Adventures",
+                        items: ["Hikes to Okoto & Ribnoto lakes", "Climb Vihren Peak (2914 m)",
+                            "Mountain picnics", "Trout fishing", "Horseback riding & ATV",
+                            "Cycling routes", "Pirin Golf course"
+                        ]
+                    },
+                    {
+                        icon: "🎿", title: "Winter Sports",
+                        items: ["Skiing & snowboarding", "Ice skating & sledding",
+                            "10 min walk to gondola", "Ski instructor", "Night skiing"
+                        ]
+                    },
+                    {
+                        icon: "🏛️", title: "Culture & Excursions",
+                        items: ["Rila Monastery + Blagoevgrad market",
+                            "Melnik & Rozhen Monastery", "Dobarsko village church",
+                            "Bear Park in Belitsa", "Baba Vanga's house in Rupite",
+                            "Leshten & Kovachevitsa villages"
+                        ]
+                    },
+                    {
+                        icon: "🚗", title: "Nearby Destinations",
+                        items: ["Kavala, Greece (2 hr drive)", "Velingrad retro train",
+                            "Mineral pools & spas", "Oldest tree in Bulgaria (1300 yrs)",
+                            "Banderitsa hut & Bezbog peak", "St. Nicholas waterfall"
+                        ]
+                    }
+                ],
+                reviewsTitle: "What guests love",
+                roomsTitle: "Accommodation & prices",
+                amenitiesTitle: "Amenities",
+                bookTitle: "Secure your mountain escape",
+                bookDesc: "Best rate · Free cancellation · Direct contact",
+                termsTitle: "Terms & Privacy Policy",
+                termsDesc: "Full info about stay, cancellation, GDPR and your rights.",
+                addressFooter: "76 Stefan Karadja St.\nBansko 2770, Bulgaria\n350 m from Gondola · Sofia Airport ~180 km",
+                contactFooter: "rahoff_bansko@yahoo.com\n+359 889 220 284\n+359 898 703 786",
+                footerCopy: "© 2025 Rahoff Hotel – Bansko",
+                chatHeader: "Rahoff Assistant",
+                welcomeMsg: "👋 Hello! Ask me about prices, gondola or terms & conditions.",
+                priceNote: "*Christmas dinner (24€) · New Year's gala (60€).",
+                discounts: ["🎁 10% off for 5+ nights", "👶 Children under 2 free", "🧒 Under 12: -50%",
+                    "🍽️ Breakfast: 8 €"
+                ],
+                amenities: ["🔥 Fireplace", "🌿 Terrace", "🧖 Sauna", "💦 Jacuzzi", "🏋️ Fitness", "🎱 Billiard",
+                    "🚲 Free bikes", "🏔️ Ski instructor", "🍷 Tavern", "🅿️ Parking"
+                ],
+                reviews: [
+                    {
+                        text: "Fantastic hospitality! Maria and Krasimir treat you like family. Spotless rooms.",
+                        author: "— Marina, USA"
+                    },
+                    {
+                        text: "Everything perfect — jacuzzi after skiing, delicious dinners, best value.",
+                        author: "— Elena, Romania"
+                    },
+                    {
+                        text: "A true gem. Cozy, extremely clean, garden with BBQ.",
+                        author: "— Giani, Romania"
+                    },
+                    {
+                        text: "Unforgettable stay — traditional dinner, sauna, free bikes.",
+                        author: "— Yordan, Bulgaria"
+                    }
+                ],
+                tableHeaders: ["Room type", "Dec 01-20, 2025", "Dec 21-27, 2025", "Dec 28 - Jan 02",
+                    "Apr 16 - Nov 30"
+                ],
+                tableRows: [
+                    ["Single", "51 €", "65 €", "100 €", "43 €"],
+                    ["Double", "68 €", "86 €", "130 €", "56 €"],
+                    ["Double luxury", "73 €", "91 €", "135 €", "56 €"],
+                    ["Triple", "102 €", "129 €", "195 €", "84 €"],
+                    ["Apartment", "136 €", "172 €", "260 €", "112 €"],
+                    ["Maisonette", "209 €", "263 €", "395 €", "168 €"]
+                ]
+            }
+        };
+
+        let currentLang = 'bg';
+
+        function updateUI(lang) {
+            const t = translations[lang];
+            document.getElementById('logoSub').innerText = t.logoSub;
+            document.getElementById('navHome').innerText = t.navHome;
+            document.getElementById('navReviews').innerText = t.navReviews;
+            document.getElementById('navRooms').innerText = t.navRooms;
+            document.getElementById('navFacilities').innerText = t.navFacilities;
+            document.getElementById('navBook').innerText = t.navBook;
+            document.getElementById('heroBadge').innerText = t.heroBadge;
+            document.getElementById('heroTitle').innerHTML = t.heroTitle;
+            document.getElementById('heroDesc').innerText = t.heroDesc;
+            document.getElementById('ratingValue').innerText = t.ratingValue;
+            document.getElementById('rankingText').innerText = t.rankingText;
+            document.getElementById('featureList').innerHTML =
+                `<p><i class="fas fa-check-circle"></i> ${t.reviewsCount}</p><p><i class="fas fa-location-dot"></i> 350 м до лифта</p><p><i class="fas fa-utensils"></i> Домашна кухня</p>`;
+            document.getElementById('galleryTitle').innerText = t.galleryTitle;
+            document.getElementById('banskoInfoTitle').innerText = t.banskoInfoTitle;
+            document.getElementById('banskoInfoDesc').innerHTML = t.banskoInfoDesc;
+            document.getElementById('banskoInfoGrid').innerHTML = t.banskoInfoCards.map(card => `
+                <div class="bansko-card">
+                    <span class="card-icon">${card.icon}</span>
+                    <h4>${card.title}</h4>
+                    <ul>${card.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                </div>
+            `).join('');
+            document.getElementById('reviewsTitle').innerText = t.reviewsTitle;
+            document.getElementById('roomsTitle').innerText = t.roomsTitle;
+            document.getElementById('amenitiesTitle').innerText = t.amenitiesTitle;
+            document.getElementById('bookTitle').innerText = t.bookTitle;
+            document.getElementById('bookDesc').innerText = t.bookDesc;
+            document.getElementById('termsTitle').innerHTML = `<i class="fas fa-gavel"></i> ${t.termsTitle}`;
+            document.getElementById('termsDesc').innerText = t.termsDesc;
+            document.getElementById('addressFooter').innerHTML = t.addressFooter.replace(/\n/g, '<br>');
+            document.getElementById('contactFooter').innerHTML = t.contactFooter.replace(/\n/g, '<br>');
+            document.getElementById('footerCopy').innerText = t.footerCopy;
+            document.getElementById('chatHeader').innerText = t.chatHeader;
+            document.getElementById('welcomeMsg').innerHTML = t.welcomeMsg;
+            document.getElementById('priceNote').innerText = t.priceNote;
+            document.getElementById('discountsContainer').innerHTML =
+                `<div style="margin-top:24px;">${t.discounts.map(d => `<span class="discount-badge">${d}</span>`).join('')}</div>`;
+            document.getElementById('amenitiesList').innerHTML = t.amenities.map(a =>
+                `<div class="amenity-item">${a}</div>`).join('');
+            document.getElementById('reviewsContainer').innerHTML = t.reviews.map(r =>
+                `<div class="review-card"><div class="stars">★★★★★</div><p style="margin:16px 0;">${r.text}</p><div class="reviewer">${r.author}</div></div>`
+            ).join('');
+            let tableHtml =
+                `<thead><tr>${t.tableHeaders.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${t.tableRows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>`;
+            document.getElementById('priceTable').innerHTML = tableHtml;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset
+                .lang === lang));
+        }
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+            currentLang = btn
+                .dataset.lang;
+            updateUI(currentLang);
+        }));
+        updateUI('bg');
+
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatBox = document.querySelector('.chat-box');
+        const closeChat = document.querySelector('.close-chat');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendChat');
+        chatToggle.onclick = () => chatBox.classList.toggle('open');
+        closeChat.onclick = () => chatBox.classList.remove('open');
+
+        function addMessage(text, isUser = false) {
+            const div = document.createElement('div');
+            div.className = `message ${isUser ? 'user-msg' : 'bot-msg'}`;
+            div.innerText = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function botReply(msg) {
+            const lower = msg.toLowerCase();
+            if (lower.includes('цена') || lower.includes('price'))
+                return "Двойна стая от 56 до 130 EUR. Вижте таблицата с цени!";
+            if (lower.includes('условия') || lower.includes('terms'))
+                return "Общите условия са в PDF линка под бутона за резервация.";
+            if (lower.includes('лифт') || lower.includes('gondola'))
+                return "Хотелът е на 350 метра от лифта (около 10 мин. пеша).";
+            return "Благодаря! За точна оферта се свържете на +359 889 220 284 или вижте PDF с условията.";
+        }
+        sendBtn.onclick = () => {
+            if (chatInput.value.trim()) {
+                addMessage(chatInput.value, true);
+                const q = chatInput.value;
+                chatInput.value = "";
+                setTimeout(() => addMessage(botReply(q), false), 400);
+            }
+        };
+        chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
+    </script>
+</body>
+
+</html>
+
