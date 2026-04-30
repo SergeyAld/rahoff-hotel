@@ -9,23 +9,37 @@ media_folder: "gallery"
 public_folder: "gallery"
 
 collections:
-  - name: "content"
-    label: "Управление"
+  - name: "prices"
+    label: "Цени"
     files:
-      - name: "prices"
-        label: "Цени"
+      - name: "hotel_data"
+        label: "Редактиране"
         file: "data.json"
         fields:
-          - label: "Данни за цените"
+          - label: "Български"
             name: "bg"
             widget: "object"
             fields:
-              - label: "Редове в таблицата"
-                name: "tableRows"
+              - name: "tableRows"
+                label: "Таблица"
+                widget: "list"
+                summary: "{{fields.0}}"
+                fields:
+                  - {label: "Стая", name: "0", widget: "string"}
+                  - {label: "П1", name: "1", widget: "string"}
+                  - {label: "П2", name: "2", widget: "string"}
+                  - {label: "Нг", name: "3", widget: "string"}
+                  - {label: "Лято", name: "4", widget: "string"}
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - name: "tableRows"
+                label: "Table"
                 widget: "list"
                 fields:
-                  - {label: "Тип стая", name: "0", widget: "string"}
-                  - {label: "Период 1", name: "1", widget: "string"}
-                  - {label: "Период 2", name: "2", widget: "string"}
-                  - {label: "Нова Година", name: "3", widget: "string"}
-                  - {label: "Лято", name: "4", widget: "string"}
+                  - {label: "Room", name: "0", widget: "string"}
+                  - {label: "P1", name: "1", widget: "string"}
+                  - {label: "P2", name: "2", widget: "string"}
+                  - {label: "NY", name: "3", widget: "string"}
+                  - {label: "Summer", name: "4", widget: "string"}
