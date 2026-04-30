@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://rahoff-auth.valerievsergej.workers.dev
   auth_endpoint: /auth
+  auth_type: external
 
 media_folder: "gallery"
 public_folder: "gallery"
@@ -40,5 +41,5 @@ collections:
                   - {label: "Room Type", name: "0", widget: "string"}
                   - {label: "Period 1", name: "1", widget: "string"}
                   - {label: "Period 2", name: "2", widget: "string"}
-                  - {label: "New Year", name: "3", widget: "string"}
+                  - {label: "Нова Година", name: "3", widget: "string"}
                   - {label: "Summer", name: "4", widget: "string"}
