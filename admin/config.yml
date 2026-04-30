@@ -9,8 +9,23 @@ media_folder: "gallery"
 public_folder: "gallery"
 
 collections:
-  - name: "prices"
-    label: "Цени"
-    file: "data.json"
-    fields:
-      - {label: "Данни", name: "bg", widget: "object", fields: [{label: "Списък", name: "tableRows", widget: "list", fields: [{label: "Стая", name: "0", widget: "string"}]}]}
+  - name: "content"
+    label: "Управление"
+    files:
+      - name: "prices"
+        label: "Цени"
+        file: "data.json"
+        fields:
+          - label: "Данни за цените"
+            name: "bg"
+            widget: "object"
+            fields:
+              - label: "Редове в таблицата"
+                name: "tableRows"
+                widget: "list"
+                fields:
+                  - {label: "Тип стая", name: "0", widget: "string"}
+                  - {label: "Период 1", name: "1", widget: "string"}
+                  - {label: "Период 2", name: "2", widget: "string"}
+                  - {label: "Нова Година", name: "3", widget: "string"}
+                  - {label: "Лято", name: "4", widget: "string"}
