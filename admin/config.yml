@@ -2,9 +2,8 @@ backend:
   name: github
   repo: SergeyAld/rahoff-hotel
   branch: main
-  # Използваме този адрес за оторизация, за да не се налага да вдигаш собствен сървър
-  base_url: https://decap-auth.vercel.app
-  auth_endpoint: /api/auth
+  base_url: https://rahoff-auth.valerievsergej.workers.dev
+  auth_endpoint: /auth
 
 media_folder: "gallery"
 public_folder: "gallery"
@@ -26,17 +25,3 @@ collections:
               - {label: "Период 2", name: "2", widget: "string"}
               - {label: "Нова Година", name: "3", widget: "string"}
               - {label: "Лято", name: "4", widget: "string"}
-
-      - name: "prices_en"
-        label: "Prices (English)"
-        file: "data.json"
-        fields:
-          - label: "Price List"
-            name: "en.tableRows"
-            widget: "list"
-            fields:
-              - {label: "Room Type", name: "0", widget: "string"}
-              - {label: "Period 1", name: "1", widget: "string"}
-              - {label: "Period 2", name: "2", widget: "string"}
-              - {label: "New Year", name: "3", widget: "string"}
-              - {label: "Summer", name: "4", widget: "string"}
