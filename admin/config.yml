@@ -2,24 +2,56 @@ backend:
   name: github
   repo: SergeyAld/rahoff-hotel
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: /auth
+  # Използваме безплатен тестов мост за оторизация (Gateway). 
+  # ВАЖНО: Виж обяснението под кода!
+  base_url: https://decap-cms-proxy.vercel.app
+  auth_endpoint: /api/auth
 
-media_folder: "gallery" # Използваме твоята съществуваща папка
+media_folder: "gallery"
 public_folder: "gallery"
 
 collections:
-  - name: "data"
-    label: "Данни за сайта"
+  - name: "content"
+    label: "Управление на цени"
     files:
-      - name: "prices"
-        label: "Цени на стаи"
-        file: "prices.json" # CMS-ът ще създаде и редактира този файл
+      - name: "prices_bg"
+        label: "Цени (Български)"
+        file: "data.json"
         fields:
-          - label: "Списък със стаи"
-            name: "rooms"
+          - label: "Списък с цени"
+            name: "bg.tableRows"
             widget: "list"
             fields:
-              - { label: "Име на стаята", name: "name", widget: "string" }
-              - { label: "Цена", name: "price", widget: "string" }
-              - { label: "Снимка", name: "image", widget: "image" }
+              - {label: "Тип стая", name: "0", widget: "string"}
+              - {label: "Период 1", name: "1", widget: "string"}
+              - {label: "Период 2", name: "2", widget: "string"}
+              - {label: "Нова Година", name: "3", widget: "string"}
+              - {label: "Лято", name: "4", widget: "string"}
+
+      - name: "prices_en"
+        label: "Prices (English)"
+        file: "data.json"
+        fields:
+          - label: "Списък с цени"
+            name: "bg.tableRows"
+            widget: "list"
+            fields:
+              - {label: "Тип стая", name: "0", widget: "string"}
+              - {label: "Период 1", name: "1", widget: "string"}
+              - {label: "Период 2", name: "2", widget: "string"}
+              - {label: "Нова Година", name: "3", widget: "string"}
+              - {label: "Лято", name: "4", widget: "string"}
+
+      - name: "prices_en"
+        label: "Prices (English)"
+        file: "data.json"
+        fields:
+          - label: "Price List"
+            name: "en.tableRows"
+            widget: "list"
+            fields:
+              - {label: "Room Type", name: "0", widget: "string"}
+              - {label: "Period 1", name: "1", widget: "string"}
+              - {label: "Period 2", name: "2", widget: "string"}
+              - {label: "New Year", name: "3", widget: "string"}
+              - {label: "Summer", name: "4", widget: "string"}
